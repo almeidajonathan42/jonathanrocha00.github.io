@@ -1,0 +1,244 @@
+<!DOCTYPE" html>
+<html lang="pt-br">
+	<head>
+		<title>Calculadora Table</title>
+		<meta charset="utf-8"/>
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<style>
+			body, html {
+				margin: 0px;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			p {
+				color: #deeaee;
+				text-shadow: 0.05em 0.05em 0.09em #9d2f2f;
+				font-size: 2em;
+				margin: 0;
+			}
+
+			#outterBody {
+				background-color: #eea29a;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+			}
+
+			#operandBox {
+				height: 50%;
+			}
+			#operatorsBox {
+				height: 50%;
+			}
+			#resultBox {
+				width: 30%;
+				text-align: left;
+				vertical-align: top;
+				background-color: #b1cbbb;
+				position: relative;
+			}
+
+			#operand {
+				background-color: #c94c4c;
+				border: none;
+				color: #deeaee;
+				font-weight: bolder;
+				box-shadow: 0.2em 0.2em #e57366;
+				height: 100%;
+				width: 100%;
+			}
+			
+			.operators {
+				background-color: #c94c4c;
+				border: none;
+				color: #deeaee;
+				box-shadow: 0.2em 0.2em #e57366;
+				margin: 0.5em;
+				height: 6em;
+				width: 6em;
+			}
+
+			.operators:hover, #operand:hover {
+				color: #abc9d4;
+				background-color: #c43b3b;
+			}
+
+			#ops {
+				margin-right: 1em;
+				display: inline-block;
+			}
+			#ops2 {
+				display: inline-block;
+			}
+
+			#resultHeader {
+				margin-left: 0.4em;
+				margin-top: 0.3em;
+				text-shadow: none;
+				font-weight: bolder;
+				color: #c2d6ca;
+			}
+
+			#history {
+				margin-right: 1em;
+				text-align: right;
+				font-size: 0.8em;
+				text-indent: 1em;
+			}
+			#about {
+				color: #c94c4c;
+				text-shadow: none;
+				text-decoration: underline;
+				font-size: 0.7em;
+				position: absolute;
+				right: 1em;
+				bottom: 1em;
+			}
+			#about:hover {
+				font-style: italic;
+				cursor: pointer;
+			}
+
+		</style>
+
+		<script>
+			var x = null;
+			var y = null;
+			var operator = null;
+
+			function receiveOperand () {
+				// Initial state
+				if (x == null && y == null) {
+					x = prompt("Insert operand");
+					if (x != null) {
+						document.getElementById("historyText").innerHTML += x + ' ';
+					}
+				}
+				// ERROR: selecting two operands without operator.
+				else if (x != null && operator == null) {
+					alert("Please insert operator.");
+				}
+				// Selecting second operand.
+				else if (x != null && operator != null) {
+					y = prompt("Insert operand");
+					document.getElementById("historyText").innerHTML += y + ' ';
+
+					if (operator == "+") {
+						x = (parseInt(x) + parseInt(y));
+					}
+					else if (operator == "-") {
+						x = (parseInt(x) - parseInt(y));
+					}
+					else if (operator == "*") {
+						x = (parseInt(x) * parseInt(y));
+					}
+					else if (operator == "÷") {
+						x = (parseInt(x) / parseInt(y));
+					}
+					else if (operator == "%") {
+						x = (parseInt(x) % parseInt(y));
+					}
+					else if (operator == "^") {
+						x = Math.pow(parseInt(x), parseInt(y));
+					}
+				}
+			}
+
+			function clr () {
+				if (x != null || y != null) {
+					x = null;
+					y = null;
+					document.getElementById("historyText").innerHTML += '<br/>';
+				}
+			}
+
+			function equals () {
+				document.getElementById("historyText").innerHTML += '= ' + x;
+				clr();
+			}
+
+			function aboutMe () {
+				alert("This calculator was made Jonathan Rocha in the year of 2016. Contact: jonathan.rocha@msn.com");
+			}
+
+// ====================== Operator's functions =========================
+			function add () {
+				operator = "+";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+			function sub () {
+				operator = "-";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+			function mult () {
+				operator = "*";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+			function divide () {
+				operator = "÷";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+			function div () {
+				operator = "%";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+			function pot () {
+				operator = "^";
+				document.getElementById("historyText").innerHTML += operator + ' ';
+			}
+// =========================================================================
+
+		</script>
+
+	</head>
+	<body>
+
+		<table id="outterBody">
+
+		<tr>
+			<td id="resultBox" rowspan="2">
+				<div>
+					<p id="resultHeader"> Result history </p>
+				</div>
+				<div id="history">
+					<p id="historyText"></p>
+				</div>
+			</td>
+
+			<td id="operandBox">
+				<button id="operand" onclick="receiveOperand()">
+					<p> INSERT <br/> NUMBER </p>
+				</button>
+			</td>
+		</tr>
+
+		<tr>
+			<td id="operatorsBox">
+				<div id="ops">
+					<button class="operators" onclick="add()"> <p>+</p> </button>
+					<button class="operators" onclick="mult()"> <p>x</p> </button>
+					<button class="operators" onclick="div()"> <p>%</p> </button>
+					<br/>
+					<button class="operators" onclick="sub()"> <p>-</p> </button>
+					<button class="operators" onclick="divide()"> <p>÷</p> </button>
+					<button class="operators" onclick="pot()"> <p>pot</p> </button>
+				</div>
+
+				<div id="ops2">
+					<button class="operators" onclick="clr()"> <p>C</p> </button>
+					<br/>
+					<button class="operators" onclick="equals()"> <p>=</p> </button>
+				</div>
+
+				<p id="about" onclick="aboutMe()"> About </p>
+			</td>
+		</tr>
+
+		</table>
+
+		
+
+	</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Exercíco Javascript </title>
+	<meta charset="utf-8"/>
+
+	<style>
+		
+	@import 'https://fonts.googleapis.com/css?family=Nunito:700';
+
+	body {
+		background-color: #ff3333;
+		margin: 0;
+		text-align: center;
+	}
+	button {
+		background-color: #ff6666;
+		color: #ffb3b3;
+		font-family: 'Nunito', sans-serif;
+		font-size: 7em;
+		text-align: right;
+		height: 90px;
+		width: 180px;
+		border: none;
+		padding-right: 20px;
+		margin: 2.5%;
+		transition: background-color 0.5s;
+		transition: color 1s;
+	}
+	button:hover {
+		background-color: #e60000;
+		color: #ffe6e6;
+	}
+	#result {
+		text-align:center; 
+  		vertical-align: middle;
+		display: table-cell;
+		margin: 0;
+	}
+	#resultDiv {
+		background-color: #ffcccc;
+		color: #cc0000;
+		font-family: 'Nunito', sans-serif;
+		height: 90px;
+		width: 40%;
+		margin: 0 auto;
+		margin-top: 40px;
+		display: table;
+	}
+	#buttonsDiv {
+		margin-top: 10px;
+	}
+
+	</style>
+
+	<script>
+
+	function first() {
+
+		var x = prompt("Insert first operand");
+		var y = prompt("Insert second operand");
+
+		document.getElementById("result").innerHTML = x + " + " + y + " = " + (parseInt(x) + parseInt(y));
+	}
+
+	function second() {
+
+		var z = prompt("Insert value in meters");
+
+		document.getElementById("result").innerHTML = "Value in millimeters: " + (parseInt(z) * 1000);
+	}
+
+	function third() {
+
+		var day = prompt("Insert days");
+		var hour = prompt("Insert hours");
+		var min = prompt("Insert minutes");
+		var sec = prompt("Insert seconds");
+
+		var total = parseInt(sec) + parseInt(min) * 60 + parseInt(hour) * 60 * 60 + parseInt(day) * 60 * 60 * 60;
+
+		document.getElementById("result").innerHTML = "Total seconds: " + parseInt(total);
+	}
+
+	function fourth() {
+		var salary = prompt("Insert salary");
+		var raise = prompt("Insert raise percent");
+
+		var totalRaise = parseInt(salary) * parseInt(raise) / 100;
+		var newSalary = parseInt(salary) + parseInt(totalRaise);
+
+		document.getElementById("result").innerHTML = "Total raise: " + totalRaise + "<br/>New salary: " + newSalary;
+	}
+
+	function fifth() {
+		var price = prompt("Insert price");
+		var discount = prompt("Insert discount");
+
+		var discountValue = parseInt(price) * parseInt(discount) / 100;
+		var finalPrice = parseInt(price) - parseInt(discountValue);
+
+		document.getElementById("result").innerHTML = "Discount: " + discountValue + "<br/>Final price: " + finalPrice;
+	}
+
+	function sixth() {
+		var firstNumber = prompt("Insert first number");
+		var secondNumber = prompt("Insert second number");
+
+		if (parseInt(firstNumber) > parseInt(secondNumber)) {
+			document.getElementById("result").innerHTML = "The biggest number is " + firstNumber + ".";
+		}
+
+		else if (parseInt(firstNumber) < parseInt(secondNumber)) {
+
+			document.getElementById("result").innerHTML = "The biggest number is " + secondNumber + ".";
+		}
+		else if (parseInt(firstNumber) == parseInt(secondNumber)) {
+			document.getElementById("result").innerHTML = "The numbers are equal.";
+		}
+	}
+
+	function seventh() {
+		var x;
+		var counter = 0;
+		var sum = 0;
+
+		while (x != 0) {
+
+			x = prompt("Insert number. Insert zero to stop");
+
+			if (x == "") {
+				continue;
+			}
+
+			sum += parseInt(x);
+			if (x != 0){
+				counter++;
+			}
+
+			alert("Sum: " + sum + "; counter: " + counter);
+		}
+
+		var average = parseInt(sum) / parseInt(counter);
+
+		document.getElementById("result").innerHTML = "Numbers inserted: " + counter + "<br/>Average: " + average;
+	}
+
+	function eighth() {
+		var name = prompt("Insert name");
+
+		document.getElementById("result").innerHTML = "\"" + name + "\" has " + name.length + " letters.";
+	}
+
+	function ninth() {
+		var like = prompt("Are you enjoying Javascript?");
+
+		if (like.toUpperCase() == "SIM" || like.toUpperCase() == "YES") {
+			document.getElementById("result").innerHTML = ": )";
+		}
+		else {
+			document.getElementById("result").innerHTML = ") :";
+		}
+	}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div id="resultDiv">
+
+		<p id="result"> Resultado </p>
+
+	</div>
+
+	<div id="buttonsDiv">
+		<div>
+			<button id="first" onclick="first()"> 1 </button>
+			<button onclick="second()"> 2 </button>
+			<button id="third" onclick="third()"> 3 </button>
+		</div>
+
+		<div>
+			<button onclick="fourth()"> 4 </button>
+			<button onclick="fifth()"> 5 </button>
+			<button onclick="sixth()"> 6 </button>
+		</div>
+		
+		<div>
+			<button id="seventh" onclick="seventh()"> 7 </button>
+			<button onclick="eighth()"> 8 </button>
+			<button id="ninth" onclick="ninth()"> 9 </button>
+		</div>
+	</div>
+
+</body>
+
+</html>
