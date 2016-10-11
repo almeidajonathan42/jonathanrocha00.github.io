@@ -1,0 +1,35 @@
+body, html {
+    margin: 0;
+    text-align: center;
+    height: 100%;
+}
+.table {
+    display: table;
+    margin: auto;
+    width: 100%;
+}
+.tableRow {
+    display: table-row;
+    height: 100%;
+    width: 100%;
+}
+.tableCell {
+    display: table-cell;
+    height: 620px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid black;
+}
+#content1, #content2 {
+    background-color: cornflowerblue;
+    height: 90%;
+    width: 90%;
+    margin: auto;
+}
+p {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    margin: 0;
+}
