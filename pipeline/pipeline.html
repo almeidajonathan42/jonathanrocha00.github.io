@@ -4,317 +4,9 @@
 		<title>Pipeline</title>
 		<meta charset="utf-8"/>
 
-		<style>
-
-			body, pre {
-				margin: 0;
-			}
-			#wholeBody {
-				display: table;
-				background-color: #b21717;
-				width: 100%;
-				height: 100%;
-				margin: auto;
-				text-align: center;
-			}
-			#tableRow {
-				display: table-row;
-				background-color: #b21717;				
-			}
-			#outputArea {
-				display: table-cell;
-				background-color: #ea6161;
-				width: 50%;
-
-			}
-			#inputArea {
-				display: table-cell;
-				background-color: #f3a5a5;
-				width: 50%;
-			}
-			#settings {
-				background-color: #b21717;
-				padding-top: 10px;
-				height: 35px;
-				width: 90%;
-				box-shadow: 2px 2px #5a0c0c;
-				visibility: hidden;
-			}
-			#settingsText, form, #option1, #option2 {
-				color: #f6bbbb;
-				display: inline;
-			}
-			#output {
-				color: #fce8e8;
-				font-family: monospace;
-				text-align: left;
-				margin: 20px;
-			}
-			#input {
-				color: #9e1515;
-				font-family: 'Open Sans', sans-serif;
-				font-size: 1.2em;
-				width: 90%;
-				height: 450px;
-				padding: 16px;
-				border: none;
-				resize: none;
-				box-shadow: 2px 2px #5a0c0c;
-			}
-			#go {
-				background-color: #b21717;
-				color: #f76f6f;
-				font-family: 'Lato', sans-serif;
-				width: 90%;
-				height: 100px;
-				border: 0;
-				font-size: 1.5em;
-				transition: background-color 0.4s;
-				margin-top: 20px;
-				box-shadow: 2px 2px #5a0c0c;
-			}
-			#go:hover {
-				background-color: #841313;
-			}
-
-		</style>
-
-		<script>
-
-			// Instruction object
-			function Instruction(string0, string1, string2, string3) {
-				this.string0 = string0;
-				this.dest = string1;
-				this.op1 = string2;
-				this.op2 = string3;
-
-				this.printInstruction = function() {
-					document.getElementById("output").innerHTML += 
-					"Instrução:\n" + 
-					"\tcomando: " + this.string0 + "\n" +
-					"\tdestino: " + this.dest + "\n" +
-					"\topera 1: " + this.op1 + "\n" +
-					"\topera 2: " + this.op2 + "\n";
-				}
-
-				this.printInstructionLine = function() {
-					return this.string0 + " " + 
-						   this.dest + " " + 
-						   this.op1 + " " + 
-						   this.op2;
-				}
-			}
-
-			// Pipeline object
-			function Pipeline(instructions) {
-				this.waitingList = instructions;
-				this.if = 0;
-				this.id = 0;
-				this.ex = 0;
-				this.mem = 0;
-				this.wb = 0;
-
-				this.movePipeline = function() {
-
-					this.wb = this.mem;
-					this.mem = this.ex;
-					this.ex = this.id;
-					this.id = this.if;
-
-					isThereConflict = 0;
-
-					if (this.mem != 0) {
-						if (this.mem.dest == this.waitingList[0].op1 ||
-							this.mem.dest == this.waitingList[0].op2) {
-
-							this.if = 0;
-							isThereConflict = 1;
-						}
-					}
-
-					if (this.ex != 0 && isThereConflict == 0) {
-						if (this.ex.dest == this.waitingList[0].op1 ||
-							this.ex.dest == this.waitingList[0].op2) {
-
-							this.if = 0;
-							isThereConflict = 1;
-						}
-					}
-					if (this.id != 0 && isThereConflict == 0) {
-						if (this.id.dest == this.waitingList[0].op1 ||
-							this.id.dest == this.waitingList[0].op2) {
-
-							this.if = 0;
-							isThereConflict = 1;
-						}
-					}
-
-					if (this.if == 0 &&
-						this.id == 0 &&
-						this.ex == 0 &&
-						this.mem == 0 ||
-						isThereConflict == 0) {
-						this.if = this.waitingList[0];
-						this.waitingList.splice(0, 1);
-					}
-				}
-
-				this.endPipeline = function() {
-					this.wb = this.mem;
-					this.mem = this.ex;
-					this.ex = this.id;
-					this.id = this.if;
-					this.if = 0;
-				}
-
-				this.printPipeline = function() {
-					// IF
-					if (this.if == 0) {
-						document.getElementById("output").innerHTML += 
-						"IF:  " + this.if + "\n";
-					}
-					else {
-						document.getElementById("output").innerHTML += 
-						"IF:  " + this.if.printInstructionLine() + "\n";
-					}
-
-					// ID
-					if (this.id == 0) {
-						document.getElementById("output").innerHTML += 
-						"ID:  " + this.id + "\n";
-					}
-					else {
-						document.getElementById("output").innerHTML += 
-						"ID:  " + this.id.printInstructionLine() + "\n";
-					}
-
-					// EX
-					if (this.ex == 0) {
-						document.getElementById("output").innerHTML += 
-						"EX:  " + this.ex + "\n";
-					}
-					else {
-						document.getElementById("output").innerHTML += 
-						"EX:  " + this.ex.printInstructionLine() + "\n";
-					}
-
-					// MEM
-					if (this.mem == 0) {
-						document.getElementById("output").innerHTML += 
-						"MEM: " + this.mem + "\n";
-					}
-					else {
-						document.getElementById("output").innerHTML += 
-						"MEM: " + this.mem.printInstructionLine() + "\n";
-					}
-
-					// WB
-					if (this.wb == 0) {
-						document.getElementById("output").innerHTML += 
-						"WB:  " + this.wb + "\n";
-					}
-					else {
-						document.getElementById("output").innerHTML += 
-						"WB:  " + this.wb.printInstructionLine() + "\n";
-					}
-
-					document.getElementById("output").innerHTML +=
-					"----------------------------------\n";
-				}
-
-				this.isEmpty = function() {
-					return this.waitingList.length == 0;
-				}
-			}
-			
-			var instructionsInLines = new Array();
-			var piecesOfInstruction = new Array();
-			var instructions = new Array();
-
-			function addInstructions() {
-
-				// Checks if input has been written.
-				if (document.getElementById("input").value != "") {
-
-					// Erases whatever is written on output.
-					document.getElementById("output").innerHTML = "";
-
-					// Splits input based on "\n"s.
-					instructionsInLines = document.getElementById("input").value.split("\n");
-
-					// Iterates through all lines of input.
-					for (i = 0; i < instructionsInLines.length; i++) {
-
-						// Removes instruction line's commas.
-						instructionsInLines[i] = instructionsInLines[i].replace(/,/g, "");
-
-						// Splits instructions line based on spaces.
-						piecesOfInstruction = instructionsInLines[i].split(" ");
-
-						if (piecesOfInstruction.length == 1) {
-							// TODO: logic for instructions with 1 parameter.
-						}
-						else if (piecesOfInstruction.length == 2) {
-							// TODO: logic for instructions with 2 parameters.
-						}
-						else if (piecesOfInstruction.length == 3) {
-							// TODO: logic for instructions with 3 parameters.
-						}
-						else if (piecesOfInstruction.length == 4) {
-							// Creates new Instruction object from instruction line.
-							instructions.push(new Instruction(piecesOfInstruction[0], piecesOfInstruction[1], piecesOfInstruction[2], piecesOfInstruction[3]));
-						}
-						
-					}
-					// Print inputed instructions.
-					document.getElementById("output").innerHTML += "Instruções recebidas: <br>"
-					for (i = 0; i < instructions.length; i++) {
-						document.getElementById("output").innerHTML +=
-						"  > " + instructions[i].printInstructionLine() + "\n";
-					}
-
-					runPipeline(instructions);
-				}
-			}
-
-			function runPipeline(instructions) {
-
-				pipeline = new Pipeline(instructions);
-
-				var counter = 1;
-				while (!pipeline.isEmpty()) {
-
-					if (counter == 1) {
-						document.getElementById("output").innerHTML +=
-						"----------------------------------\n";
-					}
-
-					document.getElementById("output").innerHTML +=
-					"Ciclo " + counter + "<br>";
-
-					pipeline.movePipeline();
-
-					pipeline.printPipeline();
-
-					counter++;
-				}
-
-				for (i = counter; i < counter + 5; i++) {
-					document.getElementById("output").innerHTML +=
-					"Ciclo " + i + "<br>";
-
-					pipeline.endPipeline();
-
-					pipeline.printPipeline();
-
-					if (i == counter + 4) {
-						document.getElementById("output").innerHTML +=
-						"Total de ciclos: " + i + "\n";
-					}
-				}
-			}
-
-		</script>
+		<link rel="stylesheet" type="text/css" href="pipeline.css"/>
+    
+		<script src="pipeline.js"></script>
 
 	</head>
 
@@ -330,21 +22,61 @@
 
 				<div id="inputArea">
 
-					<div id="settings">
-						<p id="settingsText"> Modelo </p>
-						<form>
-					  		<input id="option1" type="radio" id="harvard" name="combinations"> Harvard
-					  		<input id="option2" type="radio" id="neumann" name="combinations"> von Neumann
-						</form>
+<!-- JUMP TESTS
+	syscall
+	j LABEL
+	mfhi $1
+	div $1, $2
+
+	LABEL2:
+	lw $1, VALOR($2)
+	sub $1, $2, $3
+	j LABEL3
+	and $1, $2, $3
+
+	LABEL:
+	or $1, $2, $3
+	ori $1, $2, VALOR
+	j LABEL2
+	sll $1, $2, VALOR
+
+	LABEL3:
+	slr $1, $2, VALOR
+-->
+					<textarea id="input">
+syscall
+j LABEL
+mfhi $1
+mflo $1
+mult $1, $2
+div $1, $2
+lw $1, VALOR($2)
+sw $1, VALOR($2)
+add $1, $2, $3
+sub $1, $2, $3
+and $1, $2, $3
+or $1, $2, $3
+slt $1, $2, $3
+addi $1, $2, VALOR
+ori $1, $2, VALOR
+sll $1, $2, VALOR
+slr $1, $2, VALOR
+beq $1, $2, LABEL
+bne $1, $2, LABEL
+					</textarea>
+
+					<div id="buttonsDiv">
+						<button id="go" onclick="addInstructions()"> Enviar entrada </button>
+
+						<div id="settings">
+							<p id="settingsText"> Modelo</p>
+							<form>
+					  			<input type="radio" id="harvard" name="model" checked="true"> Harvard
+					 	 		<br>
+								<input type="radio" id="neumann" name="model"> von Neumann
+							</form>
+						</div>
 					</div>
-
-					<textarea id="input">sub $t1, $t2, $t3
-add $s5, $s6, $t1
-mult $t4, $t0, $t2
-div $s0, $t3, $t1
-pow $t5, $t2, $s0</textarea>
-
-					<button id="go" onclick="addInstructions()"> Enviar entrada </button>
 
 				</div>
 
