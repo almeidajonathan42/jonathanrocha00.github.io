@@ -1,4 +1,4 @@
-// Instruction object
+// Instruction class
 function Instruction(string0, string1, string2, string3) {
 
     // CONSTRUCTOR
@@ -197,7 +197,7 @@ function Instruction(string0, string1, string2, string3) {
         }
 }
 
-// Pipeline object
+// Pipeline class
 function Pipeline(instructions) {
     // CONSTRUCTOR
         this.waitingList = instructions;
@@ -310,12 +310,6 @@ function Pipeline(instructions) {
                 // Iterates through waitingList looking for the jump label
                 for (i = 0; i < this.waitingList.length; i++) {
                     if (this.waitingList[i].string0.replace(":", "") == this.if.dest) {
-                        // Empties pipeline
-                        this.id = new Instruction(null, null, null, null);
-                        this.ex = new Instruction(null, null, null, null);
-                        this.mem = new Instruction(null, null, null, null);
-                        this.wb = new Instruction(null, null, null, null);
-
                         // Sets index to continue accessing instructions after jump label
                         this.index = i + 1;
                         
