@@ -1,29 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Asap|Lato|Nunito|Roboto');
 
-@font-face {font-family: "BillabongW00-Regular";
-    src: url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot"); /* IE9*/
-    src: url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff2") format("woff2"), /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff") format("woff"), /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.svg#BillabongW00-Regular") format("svg"); /* iOS 4.1- */
+@font-face {
+    font-family: "BillabongW00-Regular";
+    src: url(instagram_font.woff);
 }
 
 body, html {
     background-color: #B8B8B8;
     margin: 0;
-    text-align: center;
+    height: 100%;
     font-family: 'Asap', sans-serif;
     text-shadow: 1px 1px 5px #606060;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
 #centerBody {
     background-color: #D0D0D0;
-    margin: auto;
     display: table;
-    width: 50%;
-    min-width: 600px;
-    height: 70%;
-    margin-top: 20px;
+    margin: auto;
+    height: 75%;
+    width: 75%;
+    min-width: 650px;
     box-shadow: 0px 0px 20px #404040;
 }
 .tableRow {
@@ -33,6 +32,7 @@ body, html {
     display: table-cell;
     width: 50%;
     padding: 2em;
+    vertical-align: middle;
 }
 button {
     color: #d1e0e0;
@@ -41,16 +41,17 @@ button {
     font-size: 18px;
     border: 0;
     height: 75px;
-    width: 250px;
+    width: 80%;
+    max-width: 250px;
     cursor: pointer;
     /*transition: all 0.2s ease-in-out;*/
 }
 /*
 button:hover {
-    background-color: yellow;
     transform: scale(1.05);
 }
 */
+
 /*=============================WINGRAM============================*/
     #wingram {
 
