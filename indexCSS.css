@@ -22,12 +22,7 @@ body, html {
     display: table;
     margin: auto;
     height: 75%;
-<<<<<<< HEAD
     width: 90%;
-=======
-    width: 75%;
-    min-width: 650px;
->>>>>>> origin/master
     box-shadow: 0px 0px 20px #404040;
 }
 .tableRow {
@@ -35,13 +30,8 @@ body, html {
 }
 .tableCell {
     display: table-cell;
-<<<<<<< HEAD
     width: 25%;
     padding: 1em;
-=======
-    width: 50%;
-    padding: 2em;
->>>>>>> origin/master
     vertical-align: middle;
 }
 button {
@@ -56,14 +46,6 @@ button {
     cursor: pointer;
     /*transition: all 0.2s ease-in-out;*/
 }
-<<<<<<< HEAD
-=======
-/*
-button:hover {
-    transform: scale(1.05);
-}
-*/
->>>>>>> origin/master
 
 /*=============================WINGRAM============================*/
     #wingram {
