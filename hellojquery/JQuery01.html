@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<title> JQuery 01 </title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	
+	<style>
+		
+	html, body {
+		background-color: #262626;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		vertical-align: middle;
+		justify-content: center;
+		
+	}
+	#container {
+	}
+	button {
+		background-color: #1a1a1a;
+		color: #808080;
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size: 1.2em;
+		border: 0;
+		border-radius: 4px;
+		height: 70px;
+		width: 200px;
+		display: block;
+		margin: 10px;
+		transition: background-color .3s;
+	}
+	button:hover {
+		background-color: #0d0d0d;
+		color: #a6a6a6;
+	}
+	#last {
+		display: none;
+	}
+	#restart {
+		display: none;
+	}
+
+	.yellow {
+		background-color: #e6e600;
+	}
+	.yellow:hover {
+		background-color: #e6e600;
+	}
+
+	</style>
+
+	<script>
+	
+		$(document).ready(function() {
+			$("#sumir").click(function() {
+				$("#sumir").animate({
+					opacity: '0.0'
+				});
+			});
+			
+			$("#aparecer").click(function() {
+				$("#sumir").animate({
+					opacity: '1.0'
+				});
+			});
+			
+			$("#alerta").click(function() {
+				alert("Você me clicou :)");
+			});
+			
+			$("#cliqueDuplo").dblclick(function() {
+				alert("Você deu um clique duplo :D");
+			});
+			
+			var x = 1;
+
+			$("#leave").mouseenter(function() {
+				
+				
+				if (x == 2 ) {
+					$(this).html("Você voltou :)");
+				}
+				else if (x == 1 || x > 2 && x < 30) {
+					$(this).html("Não me deixe...");
+				}
+				else {
+					$(this).html("Chega!!");
+				}
+
+			});
+			$("#leave").mouseleave(function() {
+
+				$(this).html("Volte!! D:");
+				x++;
+			});
+			
+			$("#slide").click(function() {
+				$("#last").slideToggle("slow");
+			});
+			
+			$("#last").click(function() {
+				$("button").slideToggle("slow");
+				$("#sumir").hide();
+				$("#leave").html("Mouse enter/leave");
+				$("#restart").fadeIn("slow");
+			});
+			
+			$("#restart").click(function() {
+				$("button").slideToggle("slow");
+				$("#restart").fadeOut("slow");
+				$("#last").hide();
+			});
+			
+			$("#color").click(function() {
+				$(this).toggleClass("yellow");
+			});
+		});
+		
+	</script>
+	
+	<div id="container">
+		<button id="sumir" > Sumir </buttton>
+		<button id="aparecer"> Aparecer </buttton>
+		<button id="alerta"> Alerta </buttton>
+		<button id="cliqueDuplo"> Clique duplo </buttton>
+		<button id="color"> Trocar cor </buttton>
+		<button id="leave"> Mouse enter/leave </buttton>
+		<button id="slide"> Slide </buttton>	
+		<button id="last"> Adeus :( </buttton>
+		
+		<button id="restart"> Recomeçar </buttton>
+	</div>
+	
+</body>
+
+</html>
