@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Asap|Lato|Nunito|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 @font-face {font-family: "BillabongW00-Regular";
     src: url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot"); /* IE9*/
@@ -77,6 +78,27 @@ button:hover {
         background-color: #4aacb5;
     }
 /*================================================================*/
+/*========================LOVELY BUTTON===========================*/
+    #lovelybutton {
+        background-color: #4da6ff;
+        color: #e6f2ff;
+        font-family: 'Pacifico', cursive;
+        border-radius: 4px;
+        box-shadow: 0px 3px 5px #003366;
+        transition: all .2s;
+    }
+    #lovelybutton:hover {
+        background-color: #1a8cff;
+        color: #e6e6ff;
+    }
+    #lovelybutton:active {
+        box-shadow: 1px 1px 5px #003366;
+        transform: translateY(3px);
+    }
+    #lovelyDiv {
+        background-color: #99ccff;
+    }
+/*================================================================*/
 /*===========================1000 WORDS===========================*/
     #words {
         background-color: #267326;
@@ -147,5 +169,21 @@ button:hover {
     }
     #exer2Div {
         background-color: #29293d;
+    }
+/*================================================================*/
+/*=============================JQUERY=============================*/
+    #jquery {
+        background-color: #1a1a1a;
+        color: #808080;
+        font-family: Tahoma, Geneva, sans-serif;
+        transition: background-color .3s;
+        border-radius: 8px;
+    }
+    #jquery:hover {
+        background-color: #0d0d0d;
+		color: #a6a6a6;
+    }
+    #jqueryDiv {
+        background-color: #262626;
     }
 /*================================================================*/
