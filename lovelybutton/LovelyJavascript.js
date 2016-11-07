@@ -1,5 +1,5 @@
 $(document).ready(function() {
-			
+	
     var x = 0;
 
     function type(string) {
@@ -27,7 +27,27 @@ $(document).ready(function() {
         });
     }
 
+    function moveLeft() {
+        $(".cloud").animate({
+            right: '+=10px'
+        }, 1000);
+    }
+    function moveRight() {
+        $(".cloud").animate({
+            right: '-=10px'
+        }, 1000);
+    }
 
+    function move() {
+        moveLeft();
+        moveRight();
+    }
+
+    setInterval(move, 0);
+
+
+
+    
     // typeSuperSlow("Oi");
 
     $("#text").html("Olá");
