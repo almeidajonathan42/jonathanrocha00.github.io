@@ -23,12 +23,13 @@ h1 {
 }
 .cloud {
     filter: drop-shadow( 0px 0px 10px rgba(0, 0, 0, 0.3));
+    opacity: 0.0;
 }
 #cloud1 {
     height: 70%;
     float: right;
     bottom: 0px;
-    right: -500px;
+    right: -1600px;
     position: fixed;
     z-index: 4;
 }
@@ -36,7 +37,7 @@ h1 {
     height: 65%;
     float: left;
     bottom: 60px;
-    right: 700px;
+    right: 1400px;
     position: fixed;
     z-index: 2;
 }
@@ -44,6 +45,7 @@ h1 {
     height: 55%;
     float: top;
     top: 10px;
+    right: 1700px;
     position: fixed;
     z-index: 1;
 }
@@ -63,6 +65,7 @@ button {
     box-shadow: 0px 3px 5px #003366;
     transition: all .2s;
     z-index: 100;
+    opacity: 0.0;
 }
 button:hover {
     background-color: #1a8cff;
@@ -72,4 +75,7 @@ button:hover {
 button:active {
     box-shadow: 1px 1px 5px #003366;
     transform: translateY(3px);
+}
+#text {
+    opacity: 0.0;
 }

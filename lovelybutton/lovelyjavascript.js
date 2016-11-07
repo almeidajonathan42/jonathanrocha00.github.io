@@ -37,32 +37,27 @@ $(document).ready(function() {
             right: '-=10px'
         }, 1000);
     }
-
     function move() {
         moveLeft();
         moveRight();
     }
 
-    setInterval(move, 0);
+    // Clouds and button entrance
+    $("#cloud1").animate({ opacity: '1.0', right: '-500px' }, 9000);
+    $("#cloud2").animate({ opacity: '1.0', right: '700px' }, 6000, function(){ 
+        $("#centralButton").animate({ opacity: 1.0 }, 3000, function() {
+            $("#text").animate({ opacity: '1.0' }, 3000);
+        }); 
+    });
+    $("#cloud3").animate({ opacity: '0.6', right: '50px' }, 12000);
 
-
-
-    
-    // typeSuperSlow("Oi");
-
-    $("#text").html("Olá");
-    $("#text").fadeOut(0);
-    $("#text").fadeIn(3000);
-    $("#text").fadeOut(0);
-    $("#text").html("Como vai?");
-    $("#text").fadeIn(3000);
+    // Cloud movement
+    setInterval(move, 100);
 
     $("#centralButton").mouseenter(function() {
         
         switch(x) {
-            case 0: 
-            // type("Tudo bem?");
-            break;
+            case 0: type("Tudo bem?"); break;
             case 1: typeFast("Você voltou! : )"); break;
             case 2: typeFast("Adoro quando você fica pertinho"); break;
             case 3: typeFast("Você gostou de mim?"); break;
