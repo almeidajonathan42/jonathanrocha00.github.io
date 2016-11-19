@@ -595,6 +595,14 @@ function runPipeline(instructions) {
     $("#innerBody").css("width", widthBody + "px");
     $(".line").css("width", widthBody + "px");
 
+    // Centers pipeline if it fits inside window frame
+    if ($("#wholeBody").width() > $("#innerBody").width()) {
+        $("#wholeBody").css("align-items", "center");
+    }
+    if ($(window).height() > $("#innerBody").height()) {
+        $("#wholeBody").css("height", "100%");
+    }
+
     // Creates number line at the bottom of pipeline
     var numLine = document.createElement("div");
     numLine.id += "numLine";
