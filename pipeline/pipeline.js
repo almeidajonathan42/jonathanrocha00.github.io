@@ -1,3 +1,7 @@
+$(document).ready(function() {
+
+
+
 // Instruction class
 function Instruction(string0, string1, string2, string3) {
 
@@ -451,13 +455,10 @@ var instructionsInLines = new Array();
 var piecesOfInstruction = new Array();
 var instructions = new Array();
 
-function addInstructions() {
+$("#go").click(function() {
 
     // Checks if input has been written.
     if (document.getElementById("input").value != "") {
-
-        // Erases whatever is written on output.
-        document.getElementById("output").innerHTML = "";
 
         // Splits input based on "\n"s.
         instructionsInLines = document.getElementById("input").value.split("\n");
@@ -493,14 +494,6 @@ function addInstructions() {
             }
             
         }
-        // Print inputed instructions.
-        document.getElementById("output").innerHTML += "Instruções recebidas: <br>"
-        for (i = 0; i < instructions.length; i++) {
-            document.getElementById("output").innerHTML +=
-            "> " + instructions[i].printInstructionLine() + "\n";
-
-            instructions[i].printInstructionLine();
-        }
 
         if (document.getElementById("harvard").checked) {
             runPipeline(instructions);
@@ -510,49 +503,118 @@ function addInstructions() {
         }
         
     }
-}
+});
 
 function runPipeline(instructions) {
 
-    pipeline = new Pipeline(instructions);
-    var counter = 1;
+    var body = document.getElementById("wholeBody");
 
-    // Makes whole pipeline process
+    // Removes inputArea from body
+    body.removeChild(document.getElementById("inputArea"));
+
+    // Adds an inner container to the wholeBody
+    var innerBody = document.createElement("div");
+    innerBody.id ="innerBody";
+    body.appendChild(innerBody);
+
+    pipeline = new Pipeline(instructions);
+    var counter = 0;
+
+    // Runs whole pipeline process
     while (pipeline.index < instructions.length) {
 
-        // Prints a line when pipeline starts
-        if (counter == 1) {
-            document.getElementById("output").innerHTML += "----------------------------------\n"; }
-        
         // Moves pipeline and counts number of cicles passed
         if (pipeline.movePipeline()) {
 
             pipeline.checkJump();
 
-            // Prints cicle number
-            document.getElementById("output").innerHTML +=
-            "Ciclo " + counter + "<br>";
+            if (pipeline.if.printInstructionLine() != "0") {
 
-            pipeline.printPipeline();
+                var line = document.createElement("div");
+                line.className += "line";
 
+                // Creates empty blocks
+                for (i = 0; i < counter; i++) {
+                    var emptyBlock = document.createElement("div");
+                    emptyBlock.className += "emptyBlock";
+                    line.appendChild(emptyBlock);
+                }
+
+                // Creates instruction blocks
+                for (i = 0; i < 5; i++) {
+                    var instructionBlock = document.createElement("div");
+                    instructionBlock.className += "instructionBlock";
+                    if (i == 0) { instructionBlock.innerHTML = "IF" }
+                    else if (i == 1) { instructionBlock.innerHTML = "ID" }
+                    else if (i == 2) { instructionBlock.innerHTML = "EX" }
+                    else if (i == 3) { instructionBlock.innerHTML = "MEM" }
+                    else if (i == 4) { instructionBlock.innerHTML = "WB" }
+                    line.appendChild(instructionBlock);
+                }
+
+                // Creates instruction tag
+                var instructionTag = document.createElement("div");
+                instructionTag.className += "instructionMarker";
+                line.appendChild(instructionTag);
+
+                // Adds triangle to Instruction tag
+                var triangle = document.createElement("div");
+                triangle.className += "triangle";
+                instructionTag.appendChild(triangle);
+
+                // Creates text div for instruction tag
+                var textDiv = document.createElement("div");
+                textDiv.className += "textDiv";
+                instructionTag.appendChild(textDiv);
+
+                // Adds text to instruction tag
+                var text = document.createElement("p");
+                text.innerHTML = pipeline.if.printInstructionLine();
+                text.className += "text";
+                textDiv.appendChild(text);
+
+                innerBody.appendChild(line);
+
+                // Animates instructionTag
+                $(".line").children(".instructionMarker").fadeOut(0);
+                $(".line").mouseenter(function() {
+                    $(this).children(".instructionMarker").fadeIn("fast");
+                });
+                $(".line").mouseleave(function() {
+                    $(this).children(".instructionMarker").fadeOut("fast");
+                });
+            }
+            
             counter++;
         }
     }
 
-    // Finishes pipeline
-    for (i = counter; i < counter + 4; i++) {
-        document.getElementById("output").innerHTML +=
-        "Ciclo " + i + "<br>";
+    var widthBody = (parseInt(counter) + 10) * 26;
+    var heightBody = ((parseInt(pipeline.waitingList.length) + 5) * 26);
+    $("#innerBody").css("height", heightBody + "px");
+    $("#innerBody").css("width", widthBody + "px");
+    $(".line").css("width", widthBody + "px");
 
-        pipeline.endPipeline();
-
-        pipeline.printPipeline();
-
-        if (i == counter + 3) {
-            document.getElementById("output").innerHTML +=
-            "Total de ciclos: " + i + "\n";
-        }
+    // Creates number line at the bottom of pipeline
+    var numLine = document.createElement("div");
+    numLine.id += "numLine";
+    for (i = 1; i <= counter + 4; i++) {
+        var numBlock = document.createElement("div");
+        numBlock.className += "numBlock";
+        numBlock.innerHTML = i;
+        numLine.appendChild(numBlock);
     }
+    $("#numLine").css("width", "10000px");
+    innerBody.appendChild(numLine);
+
+    // Prints total number of cicles below number line
+    var line = document.createElement("div");
+    line.className += "line";
+    var totalCicles = document.createElement("p");
+    totalCicles.innerHTML = "Total de ciclos: " + (parseInt(counter) + 4);
+    totalCicles.className += "textCicles";
+    line.appendChild(totalCicles);
+    innerBody.appendChild(line);
 }
 
 function runPipelineNeumann(instructions) {
@@ -597,3 +659,5 @@ function runPipelineNeumann(instructions) {
         }
     }
 }
+
+});

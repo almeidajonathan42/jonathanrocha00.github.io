@@ -1,13 +1,15 @@
 <!DOCTYPE" html>
 <html lang="pt-br">
 	<head>
-		<title>Pipeline</title>
+		<title>Pipeline Simulator</title>
 		<meta charset="utf-8"/>
 
 		<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
 
 		<link rel="stylesheet" type="text/css" href="pipeline.css"/>
 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
 		<script src="pipeline.js"></script>
 
 	</head>
@@ -16,70 +18,38 @@
 
 		<div id="wholeBody">
 
-			<div id="tableRow">
+			<div id="inputArea">
 
-				<div id="outputArea">
-					<pre id="output">  </pre>
-				</div>
-
-				<div id="inputArea">
-
-<!-- JUMP TESTS
-	syscall
-	j LABEL
-	mfhi $1
-	div $1, $2
-
-	LABEL2:
-	lw $1, VALOR($2)
-	sub $1, $2, $3
-	j LABEL3
-	and $1, $2, $3
-
-	LABEL:
-	or $1, $2, $3
-	ori $1, $2, VALOR
-	j LABEL2
-	sll $1, $2, VALOR
-
-	LABEL3:
-	slr $1, $2, VALOR
--->
-					<textarea id="input">
-syscall
-j LABEL
-mfhi $1
-mflo $1
-mult $1, $2
-div $1, $2
-lw $1, VALOR($2)
-sw $1, VALOR($2)
+				<textarea id="input">
 add $1, $2, $3
-sub $1, $2, $3
-and $1, $2, $3
-or $1, $2, $3
-slt $1, $2, $3
-addi $1, $2, VALOR
-ori $1, $2, VALOR
-sll $1, $2, VALOR
-slr $1, $2, VALOR
-beq $1, $2, LABEL
-bne $1, $2, LABEL
-					</textarea>
+sub $4, $1, $5
+sub $8, $4, $7
+add $9, $8, $3
+sub $10, $9, $5
+sub $11, $10, $7
+add $9, $11, $3
+sub $10, $9, $5
+sub $11, $10, $7
+sub $11, $11, $7
+add $9, $11, $3
+sub $10, $9, $5
+sub $11, $10, $7
+add $1, $11, $3
+sub $10, $1, $5
+sub $77, $10, $7
+				</textarea>
 
-					<div id="buttonsDiv">
-						<button id="go" onclick="addInstructions()"> Enviar entrada </button>
+				<div id="buttonsDiv">
+					<button id="go"> Enviar entrada </button>
 
-						<div id="settings">
-							<p id="settingsText"> Modelo</p>
-							<form>
-					  			<input type="radio" id="harvard" name="model" checked="true"> Harvard
-					 	 		<br>
-								<input type="radio" id="neumann" name="model"> von Neumann
-							</form>
-						</div>
+					<div id="settings">
+						<p id="settingsText"> Modelo</p>
+						<form>
+					  		<input type="radio" id="harvard" name="model" checked="true"> Harvard
+					 	 	<br>
+							<input type="radio" id="neumann" name="model"> von Neumann
+						</form>
 					</div>
-
 				</div>
 
 			</div>
