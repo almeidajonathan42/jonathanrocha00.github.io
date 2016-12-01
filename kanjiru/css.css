@@ -1,0 +1,21 @@
+body, html {
+    background: darkslategrey;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#container {
+    background: lightslategrey;
+    height: 50%;
+    width: 50%;
+
+    color: white;
+    font-size: 3em;
+}
+
+#button {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
