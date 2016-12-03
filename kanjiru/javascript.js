@@ -1,32 +1,12 @@
 $(document).ready(function() {
 
     // Card class
-    function Card(kanji, meaning) {
+        function Card(kanji, meaning) {
 
     // CONSTRUCTOR
         this.kanji = kanji;
         this.meaning = meaning;
         this.hits = 0;
-
-    // METHODS
-        this.addHits = function() {
-            if (hits < 4) {
-                this.hits++;
-            }
-            else {
-                this.hits = 5;
-            }
-        }
-
-        this.removeHits = function() {
-            if (hits > 0) {
-                this.hits--;
-            }
-            else {
-                this.hits = 0;
-            }
-        }
-
     }
 
     // Loads kanjis into the system
@@ -46,30 +26,156 @@ $(document).ready(function() {
     wrongAnswers.push("morte");
     wrongAnswers.push("céu");
     wrongAnswers.push("dor");
+    wrongAnswers.push("alegria");
+    wrongAnswers.push("vida");
+    wrongAnswers.push("terra");
+    wrongAnswers.push("papel");
+
+    // Script's first run
+
+    // Generates random number between zero and cards.length
+    var randomCard = Math.floor(Math.random() * cards.length);
+
+    // Prints random kanji
+    $("#kanji").html(cards[randomCard].kanji + "<br>");
+    
+    // Creates array of answers
+    var answers = [];
+
+    // Adds correct answer to the answer array
+    answers.push(cards[randomCard].meaning);
+
+    // Adds distinct wrong answers to the answer array
+    var n = 0
+    while (n < 3) {
+        var randomWrongAnswer = Math.floor(Math.random() * wrongAnswers.length);
+
+        if (answers.indexOf(wrongAnswers[randomWrongAnswer]) == -1) {
+            answers.push(wrongAnswers[randomWrongAnswer]);
+            n++;
+        }
+    }
+
+    // Shuffles answer array
+    answers = shuffleArray(answers);
+
+    // Prints answer array into the buttons
+    $("#button1").html(answers[0]);
+    $("#button2").html(answers[1]);
+    $("#button3").html(answers[2]);
+    $("#button4").html(answers[3]);
 
 
-    $("#button").click(function() {
+    $(".buttons").click(function(){
+
+        // Checks if the chosen answer was correct
+        if($(this).html() == cards[randomCard].meaning) {
+            cards[randomCard].hits += 1;
+
+            $("#result").css("background", "cornflowerblue");
+            $("#result").html("certo");
+            $("#result-container").animate({
+                opacity: "1.0"
+            }, 200);
+            $("#result-container").animate({
+                opacity: "0.0"
+            }, 1500);
+        }
+        else {
+            cards[randomCard].hits -= 1;
+
+            $("#result").css("background", "red");
+            $("#result").html("errado");
+            $("#result-container").animate({
+                opacity: "1.0"
+            }, 200);
+            $("#result-container").animate({
+                opacity: "0.0"
+            }, 1500);
+        }
+
         // Generates random number between zero and cards.length
-        var randomCard = Math.floor(Math.random() * cards.length);
+        randomCard = Math.floor(Math.random() * cards.length);
 
         // Prints random kanji
-        $("#text").html(cards[randomCard].kanji + "<br>");
+        $("#kanji").html(cards[randomCard].kanji + "<br>");
         
-        var answers = [];
+        // Prints circles that represent hits
+        if (cards[randomCard].hits <= 0) {
+            $("#hits").html("");
+        }
+        else if (cards[randomCard].hits == 1) {
+            $("#hits").html("°");
+        }
+        else if (cards[randomCard].hits == 2) {
+            $("#hits").html("°°");
+        }
+        else if (cards[randomCard].hits == 3) {
+            $("#hits").html("°°°");
+        }
+        else if (cards[randomCard].hits == 4) {
+            $("#hits").html("°°°°");
+        }
+        else if (cards[randomCard].hits == 5) {
+            $("#hits").html("°°°°°");
+        }
+        else if (cards[randomCard].hits > 5) {
+            
 
+
+
+
+
+
+
+
+
+
+
+
+
+            // TO DO: delete element from array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        // Creates array of answers
+        answers = [];
+
+        // Adds correct answer to the answer array
         answers.push(cards[randomCard].meaning);
 
-        var n = 0
+        // Adds distinct wrong answers to the answer array
+        n = 0
         while (n < 3) {
             var randomWrongAnswer = Math.floor(Math.random() * wrongAnswers.length);
 
-            if (aswers.indexOf(wrongAnswers[randomWrongAnswer]) == false) {
+            if (answers.indexOf(wrongAnswers[randomWrongAnswer]) == -1) {
                 answers.push(wrongAnswers[randomWrongAnswer]);
                 n++;
             }
         }
 
-        answers = answers.shuffleArray();
+        // Shuffles answer array
+        answers = shuffleArray(answers);
+
+        // Prints answer array into the buttons
+        $("#button1").html(answers[0]);
+        $("#button2").html(answers[1]);
+        $("#button3").html(answers[2]);
+        $("#button4").html(answers[3]);
 
     });
 
