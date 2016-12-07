@@ -1,114 +1,283 @@
-<!DOCTYPE" html>
-<html lang="en-us">
-	<head>
-		<title>Jonathan Rocha's projects</title>
-		<meta charset="utf-8"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jonathan Rocha</title>
+    <meta charset="utf-8">
 
-		<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
+<!--Bootstrap and Jquery stuff-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
 
-		<link href="indexCSS.css" rel="stylesheet" type="text/css"/>
+<!--My stuff-->
+    <link rel="stylesheet" type="text/css" href="css.css"/>
+    <script src="javascript.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
 
-		<script>
-			function detectmob() { 
-				if( navigator.userAgent.match(/Android/i)
-				|| navigator.userAgent.match(/webOS/i)
-				|| navigator.userAgent.match(/iPhone/i)
-				|| navigator.userAgent.match(/iPad/i)
-				|| navigator.userAgent.match(/iPod/i)
-				|| navigator.userAgent.match(/BlackBerry/i)
-				|| navigator.userAgent.match(/Windows Phone/i)
-				) {
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
+</head>
+<body>
 
-			if (detectmob()) {
-				window.location.href = "indexMobile.html";
-			}
-			
-		</script>
+<!--preventPathDeformation="none"-->
 
-	</head>
+<!--TOP MENU =======================================================-->
+    <div id="top-menu">
+        <ul class="list-inline">
+            <li> <a href="#landing" class="scroll"> Home </a> </li>
+            <li> <a href="#words" class="scroll"> Projects </a> </li>
+            <li> <a href="#contact" class="scroll"> Contact </a> </li>
+            <li> <a href="#links" class="scroll"> Links </a> </li>
+        </ul>
+    </div>
 
-	<body>		
+<!--LEFT MENU ======================================================-->
+    <div id="left-menu-button">
+        <p id="left-menu-button-icon"> &#9776; </p>
+    </div>
+    
+    <div id="left-menu">
+        <ul>
+            <li id="left-menu-close"> <span class="glyphicon glyphicon-remove"></span> </li>
+            <li> <a href="#landing" class="scroll"> <span class="glyphicon glyphicon-home"></span> Home </a> </li>
+            <li> <a href="#words" class="scroll"> <span class="glyphicon glyphicon-duplicate"></span> Projects </a> </li>
+            <li> <a href="#contact" class="scroll"> <span class="glyphicon glyphicon-bullhorn"></span> Contact </a> </li>
+            <li> <a href="#links" class="scroll"> <span class="glyphicon glyphicon-link"></span> Links </a> </li>
+        </ul>
+    </div>
 
-		<div id="centerBody">
+<!--BACK TO TOP BUTTON =============================================-->
+    <a href="#landing" class="scroll">
+        <div id="top">
+            <p><span class="glyphicon glyphicon-arrow-up"></span></p>
+        </div>
+    </a>
 
-			<div class="tableRow">
-				<div class="tableCell" id="winDiv">
+<!--BOOTSTRAP CONTAINER=============================================-->
+<div class="container-fluid">
 
-					<a href="wingram\wingram.html" target="_blank"> <button id="wingram"> Wingram </button> </a>
-
-					<p class="text"> Script designed to help win Instagram giveaways. </p>
-
-				</div>
-
-				<div class="tableCell" id="wordsDiv">
-
-					<a href="1000words\words.html" target="_blank"> <button id="words"> 1000 Words </button> </a>
-
-					<p class="text"> Narrative game project in development. </p>
-
-				</div>
-
-				<div class="tableCell" id="pipeDiv">
-
-					<a href="pipeline\pipeline.html" target="_blank"> <button id="pipeline"> Pipeline Simulator </button> </a>
-
-					<p class="text"> Text-based pipeline simulator. </p>
-
-				</div>
-
-				<div class="tableCell" id="jqueryDiv">
-
-					<a href="hellojquery\JQuery01.html" target="_blank"> <button id="jquery"> Hello JQuery </button> </a>
-
-					<p class="text"> A JQuery hello world. </p>
-
-				</div>
+<!--LANDING PAGE ===================================================-->
+    <div class="row" id="landing">
 
 
-			</div>
+    </div>
+<!--1000 WORDS =====================================================-->
+    <img class="triangle" id="triangle-words" src="svg/triangle-words.svg">
+        
+    <div class="row" id="words">
+        <div class="col-sm-1">
+        </div>
 
-			<div class="tableRow">
-				<div class="tableCell" id="lovelyDiv">
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
 
-					<a href="lovelybutton\lovelybutton.html" target="_blank"> <button id="lovelybutton"> Lovely Button </button> </a>
+        <div class="col-sm-5 text-container">
+            <h1>1000 Words <small>(2016)</small></h1>
+        
+            <p class="description"> A narrative game project in development. Read 1000 word stories that unfold based on your own choices and try to get to the best ending, or at least avoid the worst one.</p>
+            <p class="description"> That's pretty much how I've been living life myself. </p>
+        
+            <a href="#"> <button type="button" class="link-button pull-right"> Check it out </button> </a>
+        </div>
+        
+        <div class="col-sm-1">
+        </div>
+    </div>
 
-					<p class="text"> Interactive button project in development. </p>
+<!--HEAVY DOSES OF PHOTOSHOP =======================================-->
+    <img class="triangle" id="triangle-photoshop" src="svg/triangle-photoshop.svg">
+    
+    <div class="row" id="photoshop">
+        <div class="col-sm-1">
+        </div>
 
-				</div>
-				
-				<div class="tableCell" id="calcDiv">
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
 
-					<a href="calculadora\calc.html" target="_blank"> <button id="calculadora"> Calculator </button> </a>
+        <div class=" col-sm-5 text-container">
+            <h1>Heavy Doses of Photoshop <small>(2016)</small></h1>
+        
+            <p class="description"> My Instagram dedicated to photography, or Photoshop manipulation rather, as most of what you see wasn't even there in the first place.</p>
+            <p class="description"> Really. You don't wanna see the raw files. </p>
+        
+            <a href="#"> <button class="link-button pull-right"> Check it out </button> </a>
+        </div>
 
-					<p class="text"> Simple calculator made using the very basics of javascript. </p>
+        <div class="col-sm-1">
+        </div>
+    </div>
 
-				</div>
+<!--KANJIRU ========================================================-->
+    <img class="triangle" id="triangle-kanjiru" src="svg/triangle-kanjiru.svg">
+        
+    <div class="row" id="kanjiru">
+        <div class="col-sm-1">
+        </div>
 
-				<div class="tableCell" id="exerDiv">
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
 
-					<a href="exercicio1\exer1.html" target="_blank"> <button id="exercicio1"> Exercise 1 </button> </a>
+        <div class="col-sm-5 text-container">
+            <h1>Kanjiru <small>(2016)</small></h1>
+        
+            <p class="description"> A kanji flashcard applet. I have always found flashcards amazingly efficient to memorize kanjis, but for some reasons all apps around the web are ugly or overly complicated, so I made my own.</p>
+        
+            <a href="#"> <button class="link-button pull-right"> Check it out </button> </a>
+        </div>
 
-					<p class="text"> Random exercise to practice javascript. </p>
+        <div class="col-sm-1">
+        </div>
+    </div>
 
-				</div>
+<!--LOVELY BUTTON ==================================================-->
+    <img class="triangle" id="triangle-lovely-button" src="svg/triangle-lovely-button.svg">
+    
+    <div class="row" id="lovely-button">
+        <div class="col-sm-1">
+        </div>
 
-				<div class="tableCell" id="exer2Div">
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
 
-					<a href="exercicio2\exercicio2.html" target="_blank"> <button id="exercicio2"> Exercise 2 </button> </a>
+        <div class="col-sm-5 text-container">
+            <h1>Lovely Button <small>(2016)</small></h1>
+        
+            <p class="description"> An overly attached button.</p>
+            <p class="description"> Because, sometimes, no matter what you do, they always get the wrong idea... </p>
+        
+            <a href="#"> <button class="link-button pull-right"> Check it out </button> </a>
+        </div>
 
-					<p class="text"> Second exercise to practice javascript. </p>
+        <div class="col-sm-1">
+        </div>
+    </div>
 
-				</div>
+<!--PIPELINE SIMULATOR =============================================-->
+    <img class="triangle" id="triangle-pipeline" src="svg/triangle-pipeline.svg">
+        
+    <div class="row" id="pipeline">        
+        <div class="col-sm-1">
+        </div>
 
-			</div>
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
 
-		</div>
+        <div class="col-sm-5 text-container">
+            <h1>Pipeline Simulator <small>(2016)</small></h1>
+        
+            <p class="description"> A rather complex pipeline simulator. For those who don't know, a pipeline is a magical thing that lives inside most computers and makes them run faster by executing various instructions simultaneously. </p>
+        
+            <a href="#"> <button class="link-button pull-right"> Check it out </button> </a>
+        </div>
 
-	</body>
+        <div class="col-sm-1">
+        </div>
+    </div>
+
+<!--WINGRAM ========================================================-->
+    <img class="triangle" id="triangle-wingram" src="svg/triangle-wingram.svg">
+    
+    <div class="row" id="wingram">
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-5 image-container">
+            <img class="img-responsive" src="svg/circle.svg">
+        </div>
+
+        <div class="col-sm-5 text-container">
+            <h1>Wingram <small>(2016)</small></h1>
+        
+            <p class="description"> A simple script designed to help win online giveaways. It generates all combinations, without repetition, of the inputed usernames taken two by two, three by three or four by four.</p>
+            <p class="description"> Good luck! </p>
+        
+            <a href="#"> <button class="link-button pull-right"> Check it out </button> </a>
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+    </div>
+
+<!--CONTACT ========================================================-->
+    <img class="triangle" id="triangle-contact" src="svg/triangle-contact.svg">
+    
+    <div class="row" id="contact">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-10">
+            <h1> Contact </h1>
+
+            <dl class="dl-horizontal">
+                <dt>Skype:</dt>
+                <dd>jonathanrocha00</dd>
+                </br>
+
+                <dt>Email:</dt>
+                <dd>jonathan.rocha@msn.com</dd>
+                </br>
+
+                <dt>Github:</dt>
+                <dd><a href="https://github.com/jonathanrocha00">jonathanrocha00 </a></dd>
+                </br>
+
+                <dt>Facebook:</dt>
+                <dd><a href="https://www.facebook.com/rochajonathan"> Jonathan Rocha </a></dd>
+                </br>
+
+                <dt>Instagram:</dt>
+                <dd><a href="http://instagram.com/jonathanrocha00/"> @jonathanrocha00 </a></dd>
+                </br>
+
+                <dt>Spotify:</dt>
+                <dd><a href=""> jonathan.rocha </a></dd>
+                </br>
+                
+            </dl>
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+    </div>
+
+<!--LINKS ==========================================================-->
+    <img class="triangle" id="triangle-links" src="svg/triangle-links.svg">
+        
+    <div class="row" id="links">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-10">
+            <h1> Links </h1>
+
+            <dl class="dl-horizontal" id="contact">
+                <dt>Link 1</dt>
+                <dd><a href="#"> www.link.com </a></dd>
+                </br>
+
+                <dt>Link 2</dt>
+                <dd><a href="#"> www.link.com </a></dd>
+                </br>
+
+                <dt>Link 3</dt>
+                <dd><a href="#"> www.link.com </a></dd>
+                </br>
+
+            </dl>
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+    </div>
+
+</div>
+    
+</body>
 </html>

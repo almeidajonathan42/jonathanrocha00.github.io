@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Lato|Nunito|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+@font-face {font-family: "BillabongW00-Regular";
+    src: url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot"); /* IE9*/
+    src: url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff2") format("woff2"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff") format("woff"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("http://db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.svg#BillabongW00-Regular") format("svg"); /* iOS 4.1- */
+}
+
+body, html {
+    background-color: #B8B8B8;
+    margin: 0;
+    text-align: center;
+    font-family: 'Asap', sans-serif;
+    text-shadow: 1px 1px 5px #606060;
+}
+#centerBody {
+    background-color: #D0D0D0;
+    margin: auto;
+    display: table;
+    width: 90%;
+    height: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0px 0px 20px #404040;
+}
+.tableRow {
+    display: table-row;
+    height: 400px;
+}
+.tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+button {
+    color: #d1e0e0;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 3.5em;
+    border: 0;
+    height: 4.5em;
+    width: 10em;
+    cursor: pointer;
+    /*transition: all 0.2s ease-in-out;*/
+}
+/*
+button:hover {
+    background-color: yellow;
+    transform: scale(1.05);
+}
+*/
+.text {
+    margin: 0.7em;
+    color: #d1e0e0;
+    font-size: 2.1em;
+}
+/*=============================WINGRAM============================*/
+    #wingram {
+        background-color: #419aa4;
+        color: #a4d6da;
+        font-family: 'BillabongW00-Regular', sans-serif;
+        font-size: 7em;
+        padding-top: .3em;
+        transition: background-color 0.4s;
+        max-height: 250px;
+        max-width: 548px;
+    }
+    #wingram:hover {
+        background-color: #3b8a91;
+    }
+    #winDiv {
+        background-color: #4aacb5;
+    }
+/*================================================================*/
+/*========================LOVELY BUTTON===========================*/
+    #lovelybutton {
+        background-color: #4da6ff;
+        color: #e6f2ff;
+        font-family: 'Pacifico', cursive;
+        border-radius: 4px;
+        box-shadow: 0px 3px 5px #003366;
+        transition: all .2s;
+    }
+    #lovelybutton:hover {
+        background-color: #1a8cff;
+        color: #e6e6ff;
+    }
+    #lovelybutton:active {
+        box-shadow: 1px 1px 5px #003366;
+        transform: translateY(3px);
+    }
+    #lovelyDiv {
+        background-color: #99ccff;
+    }
+/*================================================================*/
+/*===========================1000 WORDS===========================*/
+    #words {
+        background-color: #267326;
+        color: white;
+        font-family: Arial;
+        border-radius: 1px 220px 1px 220px;
+        box-shadow: .1em .1em #194d19;
+    }
+    #wordsDIv {
+        background-color: #339933;
+    }
+/*================================================================*/
+/*===========================PIPELINE=============================*/
+    #pipeline {
+        background-color: #b21717;
+        color: #f76f6f;
+        font-family: 'Lato', sans-serif;
+        box-shadow: .1em .1em #5a0c0c;
+        transition: background-color 0.4s;
+    }
+    #pipeline:hover {
+        background-color: #841313;
+    }
+    #pipeDiv {
+        background-color: #ea6161;
+    }
+/*================================================================*/
+/*===========================CALCULATOR===========================*/
+    #calculadora {
+        background-color: #c94c4c;
+        color: #deeaee;
+        text-shadow: .05em .05em 0.09em #9d2f2f;
+        box-shadow: .1em .1em #e57366;
+        font-family: 'Roboto', sans-serif;
+    }
+    #calculadora:hover {
+        background-color: #c43b3b;
+    }
+    #calcDiv {
+        background-color: #eea29a;
+    }
+/*================================================================*/
+/*===========================EXERCISE 1===========================*/
+    #exercicio1 {
+        background-color: #ff6666;
+        color: #ffb3b3;
+        font-family: 'Nunito', sans-serif;
+        transition: background-color 0.5s;
+        transition: color 1s;
+    }
+    #exercicio1:hover {
+        background-color: #e60000;
+        color: #ffe6e6;
+    }
+    #exerDiv {
+        background-color: #ff3333;
+    }
+/*================================================================*/
+/*===========================EXERCISE 2===========================*/
+    #exercicio2 {
+        background-color: #666699;
+        color: #d1d1e0;
+        font-family: 'Roboto', sans-serif;
+        transition: background-color 0.2s;
+    }
+    #exercicio2:hover {
+        background-color: #47476b;
+    }
+    #exer2Div {
+        background-color: #29293d;
+    }
+/*================================================================*/
+/*=============================JQUERY=============================*/
+    #jquery {
+        background-color: #1a1a1a;
+        color: #808080;
+        font-family: Tahoma, Geneva, sans-serif;
+        transition: background-color .3s;
+        border-radius: 8px;
+    }
+    #jquery:hover {
+        background-color: #0d0d0d;
+		color: #a6a6a6;
+    }
+    #jqueryDiv {
+        background-color: #262626;
+    }
+/*================================================================*/

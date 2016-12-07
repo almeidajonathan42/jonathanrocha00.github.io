@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+@font-face {
+    font-family: "BillabongW00-Regular";
+    src: url(fonts/instagram_font.woff);
+}
+
+/*GENERAL CSS ====================================================*/
+    .container-fluid {
+        padding: 0;
+
+        overflow-x: hidden;
+    }
+    .row {
+        padding: 2em;
+        padding-right: 4em;
+        padding-left: 4em;
+
+        display: flex;
+        align-items: center;
+    }
+    .image-container {
+        padding-right: 5.5em;
+        padding-left: 5.5em;
+    }
+
+    small {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        margin-bottom: 1em;
+    }
+
+    .description {
+        text-indent: 4em;
+        text-align: justify;
+    }
+
+    .link-button {
+        border: 0;
+        padding: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin: 2em;
+        cursor: pointer;
+    }
+
+    .triangle {
+        height: 4em;
+        width: 100%;
+    }
+
+/*TOP MENU =======================================================*/
+    #top-menu {
+        background: lightslategrey;
+        box-shadow: 0em .1em .8em black;
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        
+        width: 100%;
+
+        color: white;
+    }
+
+    #top-menu a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #top-menu ul {
+        margin: 0;
+    }
+
+    #top-menu li {
+        margin: 1em;
+
+        transition: all .2s;
+    }
+
+    #top-menu li:hover {
+        text-shadow: 0 0 .7em darkslategray;
+    }
+
+/*LEFT MENU ======================================================*/
+    #left-menu-button {
+        position: fixed;
+        top: 2%;
+        left: 4%;
+        z-index: 10;
+    }
+
+    #left-menu-button-icon {
+        color: white;
+        font-size: 3em;
+        text-shadow: 0 0 .2em black;
+        margin: 0;
+
+        cursor: pointer;
+    }
+    
+    #left-menu {
+        background: lightslategrey;
+        box-shadow: 0em .1em .8em black;
+        height: 100%;
+        width: 0;
+
+        overflow-x: hidden;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: left;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+
+        color: white;
+
+        transition: .5s;
+    }
+
+    #left-menu span {
+        margin-right: 1em;
+        text-shadow: 0 0 .7em darkslategray;
+    }
+
+    #left-menu a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #left-menu ul {
+        margin: 0;
+        padding: 0;
+    }
+    #left-menu li {
+        display: block;
+        margin: 0;
+        margin-left: 1em;
+        margin-top: 1.4em;
+        font-size: 1.1em;
+        padding: 0;
+        cursor: pointer;
+
+        transition: all .1s;
+    }
+    #left-menu li:hover {
+        color: darkslategray;
+    }
+
+    #left-menu-close {
+        font-size: 5em;
+    }
+
+/*BACK TO TOP BUTTON =============================================*/
+    #top {
+        background: black;
+        color: white;
+        opacity: .2;
+        height: 3em;
+        width: 3em;
+        border-radius: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        bottom: 5%;
+        right: 4%;
+        z-index: 13;
+    }
+    #top:hover {
+        opacity: .3;
+    }
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #top p {
+        transform: translateY(25%);
+    }
+
+/*LANDING PAGE ===================================================*/
+    #landing {
+        background: grey;
+    }
+
+/*1000 WORDS =====================================================*/
+    #triangle-words {
+        background: grey;
+    }
+    
+    #words {
+        background: #f1d9c0;
+        color: #694117
+    }
+
+    #words .text-container {
+        background: #dfa86d;
+    }
+
+    #words .link-button {
+        background: #48509e;
+        color: white;
+
+        transition: all .3s;
+    }
+    #words .link-button:hover {
+        background: #303669;
+    }
+
+/*HEAVY DOSES OF PHOTOSHOP =======================================*/
+    #triangle-photoshop {
+        background: #f1d9c0;
+    }
+    
+    #photoshop {
+        background: cadetblue;
+    }
+
+    #photoshop h1{
+        color: #dddddd;
+    }
+
+    #photoshop .link-button{
+        background: cadetblue;
+        color: #003333;
+        border: .1em solid #003333;
+        border-radius: .5em;
+        box-shadow: .1em .1em 1em #436f71;
+    }
+    #photoshop .link-button:hover{
+        background: #006666;
+        color: #cccccc;
+        border: .1em solid white;
+    }
+
+/*KANJIRU ========================================================*/
+    #triangle-kanjiru {
+        background: cadetblue;
+    }
+    
+    #kanjiru {
+        background: white;
+    }
+
+    #kanjiru h1 {
+        color: darkred;
+    }
+
+    #kanjiru .description {
+        color: red;
+    }
+
+    #kanjiru .link-button {
+        background: lightgrey;
+        color: darkslategrey;
+
+        border-radius: 10em;
+
+        transition: all .2s;
+    }
+
+    #kanjiru .link-button:hover {
+        background: indianred;
+        color: white;
+    }
+
+/*LOVELY BUTTON ==================================================*/
+    #triangle-lovely-button {
+        background: white;
+    }
+    
+    #lovely-button {
+        background: #66b3ff;
+        color: #e6e6ff;
+    }
+
+    #lovely-button h1 {
+        font-family: 'Pacifico', cursive;
+    }
+
+    #lovely-button .link-button {
+        background: #4da6ff;
+        color: #e6f2ff;
+        border-radius: 4px;
+        box-shadow: 0px 3px 5px #003366;
+        transition: all .2s;
+    }
+    #lovely-button .link-button:hover {
+        background: #1a8cff;
+        color: #e6e6ff;
+    }
+    #lovely-button .link-button:active {
+        box-shadow: 1px 1px 5px #003366;
+        transform: translateY(3px);
+    }
+
+/*PIPELINE SIMULATOR =============================================*/
+    #triangle-pipeline {
+        background: #66b3ff;
+    }
+    
+    #pipeline {
+        background: #262626;
+        color: #808080;
+    }
+
+    #pipeline h1{
+        color: #cccccc;
+    }
+
+    #pipeline .link-button {
+        background: #1a1a1a;
+        color: #808080;
+        border-radius: .2em;
+
+        transition: all .3s;
+    }
+
+    #pipeline .link-button:hover {
+        background: #0d0d0d;
+        color: #a6a6a6;
+    }
+
+/*WINGRAM ========================================================*/
+    #triangle-wingram {
+        background: #262626;
+    }
+
+    #wingram {
+        background: #4aacb5;
+        color: #a4d6da;
+    }
+
+    #wingram h1 {
+        text-shadow: 0px 0px 15px #419aa4;
+        font-family: 'BillabongW00-Regular', Arial, Helvetica, sans-serif;
+        font-size: 4em;
+        margin-bottom: .5em;
+    }
+    
+    #wingram small {
+        text-shadow: 0px 0px 0px;
+        font-size: .5em;
+    }
+
+    #wingram .description {
+        text-shadow: 0px 0px 10px #419aa4;
+    }
+
+    #wingram .link-button {
+        background: #419aa4;
+        color: #a4d6da;
+
+        transition: all 0.4s;
+    }
+    #wingram .link-button:hover {
+        background: #3b8a91;
+    }
+
+/*CONTACT ========================================================*/
+    #triangle-contact {
+        background: #4aacb5;
+    }
+    
+    #contact a {
+        color: darkslategrey;
+        text-decoration: none;
+    }
+
+    #contact a:hover {
+        color: darkblue;
+    }
+
+/*LINKS ==========================================================*/
+    #triangle-links {
+        background: white;
+    }
+    
+    #links {
+        background: lightgrey;
+    }
+
+    #links a {
+        color: darkslategrey;
+        text-decoration: none;
+    }
+
+    #links a:hover {
+        color: darkblue;
+    }
