@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 @font-face {
     font-family: "BillabongW00-Regular";
@@ -189,12 +190,38 @@
 
 /*LANDING PAGE ===================================================*/
     #landing {
-        background: grey;
+        background: #993333;
+        color: 	white;
+        font-family: 'Raleway', sans-serif;
+
+        padding-top: 4em;
+    }
+
+    #landing .photo-container .img-responsive {
+        border: 1px solid white;
+        padding: .5em;
+        max-height: 500px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    #name {
+        border: 0;
+        margin-bottom: 2em;
+    }
+
+    #landing p {
+        font-size: 3.5em;
+        line-height: 100%;
+
+    }
+
+    .right-side {
+        text-align: right;
     }
 
 /*1000 WORDS =====================================================*/
     #triangle-words {
-        background: grey;
+        background: #993333;
     }
     
     #words {
@@ -202,13 +229,19 @@
         color: #694117
     }
 
-    #words .text-container {
+    #words .description {
         background: #dfa86d;
+        border-radius: .7em;
+        padding: 1.5em 2em 2em 2em;
     }
 
     #words .link-button {
         background: #48509e;
         color: white;
+        border-radius: .3em;
+        margin-bottom: 0;
+
+        transform: translateY(-4.5em);
 
         transition: all .3s;
     }
