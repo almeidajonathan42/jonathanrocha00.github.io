@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@font-face {
+    font-family: "BillabongW00-Regular";
+    src: url(instagram_font.woff);
+}
+
+body {
+    background-color: #4aacb5;
+}
+
+.row {
+    text-align: center;
+}
+/*HEADER =======================================================*/
+    #header-container {
+        margin-top: 4em;
+    }
+    #header-container h1{
+        color: #a4d6da;
+        text-shadow: 0em 0em .2em #419aa4;
+        font-family: 'BillabongW00-Regular', sans-serif;
+        font-size: 8em;
+    }
+
+/*TEXT BELOW HEADER ============================================*/
+    #text-container p {
+        color: #a4d6da;
+        text-shadow: 0em 0em 1em #419aa4;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
+
+/*INTERACTION AREA =============================================*/
+    #interaction-area {
+        height: 100%;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    #settings-div {
+        background: #419aa4;
+        color: #a4d6da;
+        padding: 3.5em 0;
+        border-radius: 2em 0 0 2em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .settingsText {
+        margin: 0;
+    }
+
+    #input-div {
+        padding: 0;
+    }
+    #input {
+        color: #34787f;
+        height: 100%;
+        width: 100%;
+        border: 0;
+        padding: 1em;
+        resize: none;
+        border-radius: 0 2em 2em 0;
+    }
+
+/*BUTTON =======================================================*/
+    #button-container button {
+        background-color: #419aa4;
+        color: #a4d6da;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.5em;
+        border: 0;
+        margin-top: 1em;
+
+        transition: all 0.4s;
+    }
+
+    #button-container button:hover {
+        background-color: #3b8a91;
+    }
+
+    #run {
+        padding: .9em 2em;
+        border-radius: 2em;
+    }
+
+    #restart {
+        height: 3em;
+        width: 3em;
+        border-radius: 100%;
+        margin-left: 1em;
+    }
+
+    #restart span {
+        transform: translateY(10%);
+    }
+    

@@ -11,11 +11,88 @@ $(document).ready(function() {
 
     // Loads kanjis into the system
     var cards = [];
-    cards.push(new Card("心", "coração"));
     cards.push(new Card("一", "um"));
-    cards.push(new Card("市", "cidade"));
-    cards.push(new Card("雲", "nuvem"));
-    cards.push(new Card("悲", "triste"));
+    cards.push(new Card("二", "dois"));
+    cards.push(new Card("三", "três"));
+    cards.push(new Card("四", "quatro"));
+    cards.push(new Card("五", "cinco"));
+    cards.push(new Card("六", "seis"));
+    cards.push(new Card("七", "sete"));
+    cards.push(new Card("八", "oito"));
+    cards.push(new Card("九", "nove"));
+    cards.push(new Card("十", "dez"));
+    cards.push(new Card("百", "cem"));
+    cards.push(new Card("千", "mil"));
+    cards.push(new Card("上", "acima"));
+    cards.push(new Card("下", "abaixo"));
+    cards.push(new Card("左", "esquerda"));
+    cards.push(new Card("右", "direita"));
+    cards.push(new Card("中", "dentro"));
+    cards.push(new Card("大", "largo"));
+    cards.push(new Card("小", "pequeno"));
+    cards.push(new Card("月", "mês"));
+    cards.push(new Card("日", "dia"));
+    cards.push(new Card("年", "ano"));
+    cards.push(new Card("早", "cedo"));
+    cards.push(new Card("木", "árvore"));
+    cards.push(new Card("林", "floresta"));
+    cards.push(new Card("山", "montanha"));
+    cards.push(new Card("川", "rio"));
+    cards.push(new Card("土", "solo"));
+    cards.push(new Card("空", "céu"));
+    cards.push(new Card("田", "campo de arroz"));
+    cards.push(new Card("天", "paraído"));
+    cards.push(new Card("生", "vida"));
+    cards.push(new Card("花", "flor"));
+    cards.push(new Card("草", "grama"));
+    cards.push(new Card("虫", "inseto"));
+    cards.push(new Card("犬", "cachorro"));
+    cards.push(new Card("人", "pessoa"));
+    cards.push(new Card("名", "nome"));
+    cards.push(new Card("女", "feminino"));
+    cards.push(new Card("男", "masculino"));
+    cards.push(new Card("子", "criança"));
+    cards.push(new Card("目", "olho"));
+    cards.push(new Card("耳", "ouvido"));
+    cards.push(new Card("口", "boca"));
+    cards.push(new Card("手", "mão"));
+    cards.push(new Card("足", "pé"));
+    cards.push(new Card("見", "ver"));
+    cards.push(new Card("音", "som"));
+    cards.push(new Card("力", "força"));
+    cards.push(new Card("気", "espírito"));
+    cards.push(new Card("円", "yen"));
+    cards.push(new Card("入", "entrar"));
+    cards.push(new Card("出", "sair"));
+    cards.push(new Card("立", "ficar de pé"));
+    cards.push(new Card("休", "descançar"));
+    cards.push(new Card("先", "anterior"));
+    cards.push(new Card("夕", "noite"));
+    cards.push(new Card("本", "livro"));
+    cards.push(new Card("文", "texto"));
+    cards.push(new Card("字", "letra"));
+    cards.push(new Card("学", "estudar"));
+    cards.push(new Card("校", "escola"));
+    cards.push(new Card("村", "vila"));
+    cards.push(new Card("町", "cidade"));
+    cards.push(new Card("森", "floresta"));
+    cards.push(new Card("正", "correto"));
+    cards.push(new Card("水", "água"));
+    cards.push(new Card("火", "fogo"));
+    cards.push(new Card("玉", "gema"));
+    cards.push(new Card("王", "rei"));
+    cards.push(new Card("石", "pedra"));
+    cards.push(new Card("竹", "bambu"));
+    cards.push(new Card("糸", "fio"));
+    cards.push(new Card("貝", "concha"));
+    cards.push(new Card("車", "veículo"));
+    cards.push(new Card("金", "ouro"));
+    cards.push(new Card("雨", "chuva"));
+    cards.push(new Card("赤", "vermelho"));
+    cards.push(new Card("青", "azul"));
+    cards.push(new Card("白", "branco"));
+    
+    
 
     // Loads wrong answers into the system
     var wrongAnswers = [];
@@ -188,6 +265,5 @@ $(document).ready(function() {
         }
         return array;
     }
-
 
 });

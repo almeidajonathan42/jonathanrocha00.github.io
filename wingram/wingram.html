@@ -1,307 +1,84 @@
-<!DOCTYPE" html>
+<!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<title>Wingram</title>
-		<meta charset="utf-8"/>
-
-		<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
-
-		<link href="//db.onlinewebfonts.com/c/6d32b8e06f40fb7698cfb714b9e7975d?family=BillabongW00-Regular" rel="stylesheet" type="text/css"/>
-
-		<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
-
-		<style>
-
-		body {
-			background-color: #4aacb5;
-			margin: 0;
-		}
-
-		#centralBody {
-			margin: auto;
-			text-align: center;
-		}
-
-		#header {
-			font-family: 'BillabongW00-Regular', sans-serif;
-			color: #a4d6da;
-			text-shadow: 0px 0px 15px #419aa4;
-			font-size: 100px;
-			font-weight: normal;
-			margin: 0;
-			margin-top: 2%;
-		}
-
-		#text {
-			font-family: 'Open Sans', sans-serif;
-			color: #a4d6da;
-			text-shadow: 0px 0px 10px #419aa4;
-			font-size: 1.2em;
-			margin: 0;
-			margin-bottom: 2%;
-		}
-
-		#input {
-			color: #3b8a91;
-			font-family: 'Open Sans', sans-serif;
-			height: 225px;
-			width: 450px;
-			padding: 1em;
-			border: none;
-			border-radius: 0 20px 20px 0;
-		}
-
-		button {
-			background-color: #419aa4;
-			border: 0;
-			color: #a4d6da;
-			font-family: 'Lato', sans-serif;
-			font-size: 1.5em;
-			margin: auto;
-			margin-top: 1em;
-			width: 22%;
-			min-width: 285px;
-			height: 15%;
-			min-height: 50px;
-		}
-		#go {
-			transition: background-color 0.4s;
-			display: inline;
-		}
-		#go:hover {
-			background-color: #3b8a91;
-		}
-
-		#about {
-			color: #a4d6da;
-			text-shadow: none;
-			font-size: 0.7em;
-			position: fixed;
-			right: 1em;
-			bottom: 0.2em;
-		}
-		#about:hover {
-			text-decoration: underline;
-			cursor: pointer;
-		}
-
-		#interactionArea {
-			display: inline-flex;
-		}
-		#settings {
-			background-color: #419aa4;
-			border-radius: 20px 0 0 20px;
-			color: #a4d6da;
-			font-family: 'Open Sans', sans-serif;
-			font-size: 0.9em;
-			height: 225px;
-			width: 170px;
-			display: inline;
-		}
-		.settingsText {
-			margin-bottom: 0;
-			margin-top: 1.8em;
-		}
-
-		#inputDiv textarea {
-			resize: none;
-			display: inline;
-		}
-
-		</style>
-
-		<script>
-
-			var usernames = new Array();
-			var ran = false;
-
-			function generateOutput2(usernames, arroba) {
-				var count2 = 0;
-
-				if (arroba == true) {
-					for (j = 0; j < usernames.length - 1; j++) {
-	                    for (k = j + 1; k < usernames.length; k++) {
-
-	                    	document.getElementById("input").value += " @" + usernames[j] + " @" + usernames[k] + "\n";
-
-	                        count2++;
-	                    }
-	                }
-				}
-				else if (arroba == false) {
-					for (j = 0; j < usernames.length - 1; j++) {
-	                    for (k = j + 1; k < usernames.length; k++) {
-
-	                    	document.getElementById("input").value += usernames[j] + " " + usernames[k] + "\n";
-
-	                        count2++;
-	                    }
-	                }
-				}
-
-                document.getElementById("input").value += "\n\nCombinações geradas: " + count2;
-			}
-
-			function generateOutput3(usernames, arroba) {
-				var count = 0;
-
-				if (arroba == true) {
-					for (i = 0; i < usernames.length - 2; i++) {
-	                    for (j = i + 1; j < usernames.length - 1; j++) {
-	                        for (k = j + 1; k < usernames.length; k++) {
-
-	                        	document.getElementById("input").value += "@" + usernames[i] + " @" + usernames[j] + " @" + usernames[k] + "\n";
-
-	                            count++;
-	                        }
-	                    }
-	                }
-				}
-				else if (arroba == false) {
-					for (i = 0; i < usernames.length - 2; i++) {
-	                    for (j = i + 1; j < usernames.length - 1; j++) {
-	                        for (k = j + 1; k < usernames.length; k++) {
-
-	                        	document.getElementById("input").value += usernames[i] + " " + usernames[j] + " " + usernames[k] + "\n";
-
-	                            count++;
-	                        }
-	                    }
-	                }
-				}
-				
-                document.getElementById("input").value += "\n\nCombinações geradas: " + count;
-			}
-
-			function generateOutput4(usernames, arroba) {
-				var count4 = 0;
-
-				if (arroba == true) {
-					for (i = 0; i < usernames.length - 3; i++) {
-	                    for (j = i + 1; j < usernames.length - 2; j++) {
-	                        for (k = j + 1; k < usernames.length - 1; k++) {
-	                        	for (l = k + 1; l < usernames.length; l++) {
-
-	                        		document.getElementById("input").value += "@" + usernames[i] + " @" + usernames[j] + " @" + usernames[k] + " @" + usernames[l] + "\n";
-
-	                            	count4++;
-
-	                        	}
-	                        }
-	                    }
-	                }
-				}
-				else if (arroba == false) {
-					for (i = 0; i < usernames.length - 3; i++) {
-	                    for (j = i + 1; j < usernames.length - 2; j++) {
-	                        for (k = j + 1; k < usernames.length - 1; k++) {
-	                        	for (l = k + 1; l < usernames.length; l++) {
-
-	                        		document.getElementById("input").value += usernames[i] + " " + usernames[j] + " " + usernames[k] + " " + usernames[l] + "\n";
-
-	                            	count4++;
-
-	                        	}
-	                        }
-	                    }
-	                }
-				}
-				
-                document.getElementById("input").value += "\n\nCombinações geradas: " + count4;
-			}
-
-			function addUsername() {
-
-				if (document.getElementById("input").value != "" && ran == false) {
-					usernames = document.getElementById("input").value.split(" ");
-
-					// Deletes empty units in the array
-					for (i = 0; i < usernames.length; i++) {
-						if (usernames[i] == "") {
-    						usernames.splice(i, 1);
-						}
-					}
-
-					var arroba;
-					if (document.getElementById("yes").checked) {
-						arroba = true;
-					}
-					else if (document.getElementById("no").checked) {
-						arroba = false;
-					}
-
-					document.getElementById("input").value = "";
-
-					if (document.getElementById("two").checked) {
-						generateOutput2(usernames, arroba);
-					}
-					else if (document.getElementById("three").checked) {
-						generateOutput3(usernames, arroba);
-					}
-					else if (document.getElementById("four").checked) {
-						generateOutput4(usernames, arroba);
-					}
-
-					ran = true;
-				}
-			}
-
-			function aboutMe () {
-				alert("Este script foi feito por Jonathan Rocha e Pedro Henrique s2 para gerar todas as possíveis combinações de usernames sem repetição.");
-			}
-
-		</script>
-
-	</head>
-
-	<body>		
-
-	<div id="centralBody">
-
-		<h1 id="header"> Wingram </h1>
-
-		<p id="text"> Escreva usernames sem arroba e separados por espaços. </p>
-
-		<div id="interactionArea">
-			
-			<div id="settings">
-
-				<p class="settingsText"> Combinar </p>
-
-				<form>
-			  		<input type="radio" id="two" name="combinations"> 2 a 2 <br>
-			  		<input type="radio" id="three" name="combinations" checked="true"> 3 a 3 <br>
-			  		<input type="radio" id="four" name="combinations"> 4 a 4 <br>
-				</form>
-
-				<p class="settingsText"> Escrever arrobas? </p>
-
-				<form>
-			  		<input type="radio" id="yes" name="arroba" checked="true"> Sim <br>
-			  		<input type="radio" id="no" name="arroba"> Não <br>
-				</form>
-
-			</div>
-			<div id="inputDiv">
-
-				<textarea id="input" placeholder="cdnleon nilmoretto monark123 borbolinda"></textarea>
-
-			</div>
-		</div>
-
-		<div id="buttonsDiv">
-
-			<button id="go" onclick="addUsername()"> Gerar combinações </button>
-
-		</div>
-
-		
-
-		<p id="about" onclick="aboutMe()"> About </p>
-
-	</div>
-
-	
-
-	</body>
+<head>
+    <title>Wingram</title>
+    <meta charset="utf-8">
+
+<!--Bootstrap and Jquery stuff-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--JQuery - Google's CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--Bootstrap javascript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!--My stuff-->
+    <link rel="stylesheet" type="text/css" href="css.css"/>
+    <script src="javascript.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12" id="header-container">
+            <h1> Wingram </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="text-container">
+            <p> Escreva usernames sem arroba e separados por espaços. </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="interaction-area-container">
+            <div id="interaction-area">
+                <div class="col-sm-3" id="settings-div">
+
+                    <div class="settings-inside-div">
+                        <p class="settingsText"> Combinar </p>
+
+                        <form>
+                            <input type="radio" id="two" name="combinations"> 2 a 2 <br>
+                            <input type="radio" id="three" name="combinations" checked="true"> 3 a 3 <br>
+                            <input type="radio" id="four" name="combinations"> 4 a 4 <br>
+                        </form>
+                    </div>
+
+                    <div class="settings-inside-div">
+                        <p class="settingsText"> Escrever arrobas? </p>
+
+                        <form>
+                            <input type="radio" id="yes" name="arroba" checked="true"> Sim <br>
+                            <input type="radio" id="no" name="arroba"> Não <br>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-9" id="input-div">
+
+                    <textarea id="input" placeholder="cdnleon nilmoretto monark123 borbolinda"></textarea>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="button-container">
+            <button id="run"> Combinar </button>
+
+            <button id="restart"> <span class="glyphicon glyphicon-repeat"></span> </button>
+        </div>
+    </div>
+
+</div>
+    
+</body>
 </html>
