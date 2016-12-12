@@ -21,13 +21,55 @@ $(document).ready(function() {
         }
     }
 
-    var usernames = new Array();
-    var ran = false;
+    $("#run").click(function() {
 
-    function generateOutput2(usernames, arroba) {
+        var usernames = [];
+        var at = true;
+
+        if ($("#input").val() != "") {
+            usernames = $("#input").val().split(" ");
+
+            // Deletes empty units in the array
+            for (i = usernames.length; i > 0; i--) {
+                if (usernames[i] == "") {
+                    usernames.splice(i, 1);
+                }
+            }
+
+            // Cleans text area
+            $("#input").val("");
+
+            // Sets at variable
+            if (document.getElementById("yes").checked) {
+                at = true;
+            }
+            else if (document.getElementById("no").checked) {
+                at = false;
+            }
+
+
+            if (document.getElementById("two").checked) {
+                generateOutput2(usernames, at);
+            }
+            else if (document.getElementById("three").checked) {
+                generateOutput3(usernames, at);
+            }
+            else if (document.getElementById("four").checked) {
+                generateOutput4(usernames, at);
+            }
+        }
+    });
+
+    
+    $("#restart").click(function() {
+        // Cleans text area
+        $("#input").val("");
+    });
+
+    function generateOutput2(usernames, at) {
         var count2 = 0;
 
-        if (arroba == true) {
+        if (at == true) {
             for (j = 0; j < usernames.length - 1; j++) {
                 for (k = j + 1; k < usernames.length; k++) {
 
@@ -37,7 +79,7 @@ $(document).ready(function() {
                 }
             }
         }
-        else if (arroba == false) {
+        else if (at == false) {
             for (j = 0; j < usernames.length - 1; j++) {
                 for (k = j + 1; k < usernames.length; k++) {
 
@@ -51,10 +93,10 @@ $(document).ready(function() {
         document.getElementById("input").value += "\n\nCombinações geradas: " + count2;
     }
 
-    function generateOutput3(usernames, arroba) {
+    function generateOutput3(usernames, at) {
         var count = 0;
 
-        if (arroba == true) {
+        if (at == true) {
             for (i = 0; i < usernames.length - 2; i++) {
                 for (j = i + 1; j < usernames.length - 1; j++) {
                     for (k = j + 1; k < usernames.length; k++) {
@@ -66,7 +108,7 @@ $(document).ready(function() {
                 }
             }
         }
-        else if (arroba == false) {
+        else if (at == false) {
             for (i = 0; i < usernames.length - 2; i++) {
                 for (j = i + 1; j < usernames.length - 1; j++) {
                     for (k = j + 1; k < usernames.length; k++) {
@@ -82,10 +124,10 @@ $(document).ready(function() {
         document.getElementById("input").value += "\n\nCombinações geradas: " + count;
     }
 
-    function generateOutput4(usernames, arroba) {
+    function generateOutput4(usernames, at) {
         var count4 = 0;
 
-        if (arroba == true) {
+        if (at == true) {
             for (i = 0; i < usernames.length - 3; i++) {
                 for (j = i + 1; j < usernames.length - 2; j++) {
                     for (k = j + 1; k < usernames.length - 1; k++) {
@@ -100,7 +142,7 @@ $(document).ready(function() {
                 }
             }
         }
-        else if (arroba == false) {
+        else if (at == false) {
             for (i = 0; i < usernames.length - 3; i++) {
                 for (j = i + 1; j < usernames.length - 2; j++) {
                     for (k = j + 1; k < usernames.length - 1; k++) {
@@ -117,42 +159,6 @@ $(document).ready(function() {
         }
         
         document.getElementById("input").value += "\n\nCombinações geradas: " + count4;
-    }
-
-    function addUsername() {
-
-        if (document.getElementById("input").value != "" && ran == false) {
-            usernames = document.getElementById("input").value.split(" ");
-
-            // Deletes empty units in the array
-            for (i = 0; i < usernames.length; i++) {
-                if (usernames[i] == "") {
-                    usernames.splice(i, 1);
-                }
-            }
-
-            var arroba;
-            if (document.getElementById("yes").checked) {
-                arroba = true;
-            }
-            else if (document.getElementById("no").checked) {
-                arroba = false;
-            }
-
-            document.getElementById("input").value = "";
-
-            if (document.getElementById("two").checked) {
-                generateOutput2(usernames, arroba);
-            }
-            else if (document.getElementById("three").checked) {
-                generateOutput3(usernames, arroba);
-            }
-            else if (document.getElementById("four").checked) {
-                generateOutput4(usernames, arroba);
-            }
-
-            ran = true;
-        }
     }
 
 });

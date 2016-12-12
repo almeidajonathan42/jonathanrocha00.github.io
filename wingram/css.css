@@ -28,7 +28,7 @@ body {
         color: #a4d6da;
         text-shadow: 0em 0em 1em #419aa4;
         font-family: 'Open Sans', sans-serif;
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin-bottom: 1em;
     }
 
@@ -53,6 +53,7 @@ body {
 
     .settingsText {
         margin: 0;
+        margin-top: .5em;
     }
 
     #input-div {
@@ -67,6 +68,9 @@ body {
         resize: none;
         border-radius: 0 2em 2em 0;
     }
+    #input:focus {
+        outline: none;
+    }
 
 /*BUTTON =======================================================*/
     #button-container button {
@@ -78,12 +82,19 @@ body {
         margin-top: 1em;
 
         transition: all 0.4s;
+        transition: transform 1s;
     }
 
     #button-container button:hover {
         background-color: #3b8a91;
     }
-
+    #button-container button:focus {
+        outline: none;
+    }
+    #button-container button:active {
+        background: #2c676d;
+    }
+    
     #run {
         padding: .9em 2em;
         border-radius: 2em;
@@ -94,6 +105,9 @@ body {
         width: 3em;
         border-radius: 100%;
         margin-left: 1em;
+    }
+    #restart:hover {
+        transform: rotate(360deg);
     }
 
     #restart span {
