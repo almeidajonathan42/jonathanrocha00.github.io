@@ -4,7 +4,8 @@ $(document).ready(function() {
     window.addEventListener("resize", checkHeightWidth);
 
     function checkHeightWidth() {
-        if ($(window).width() < 750) {
+        if ($(window).width() <= 750) {
+            $("#interaction-area").css("width", "90%");
             $("#settings-div").css("border-radius", "2em 2em 0 0");
             $("#settings-div").css("flex-direction", "row");
             $("#settings-div").css("padding", "1em 0");
@@ -13,9 +14,10 @@ $(document).ready(function() {
 
         }
         else {
+            $("#interaction-area").css("width", "53em");
             $("#settings-div").css("border-radius", "2em 0 0 2em");
             $("#settings-div").css("flex-direction", "column");
-            $("#settings-div").css("padding", "3.5em 0");
+            $("#settings-div").css("padding", "3em 0");
             $("#input-div").css("height", $("#interaction-area-container").height() + "px");
             $("#input").css("border-radius", "0 2em 2em 0");
         }

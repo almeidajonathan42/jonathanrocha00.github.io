@@ -391,6 +391,7 @@
     #wingram .link-button {
         background: #419aa4;
         color: #a4d6da;
+        border-radius: 2em;
 
         transition: all 0.4s;
     }
