@@ -1,97 +1,91 @@
-body, html {
-    background: white;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#container {
-    background: white;
-    height: 50%;
-    width: 50%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#kanji-container {
-    background: lightgrey;
-    border-radius: 50em;
-    height: 100%;
-    width: 50%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#kanji {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11em;
-    margin: 0;
-}
-#hits {
-    color: cornflowerblue;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 5em;
-    margin: 0;
-}
-
-#answers-container {
-    background: white;
-    height: 100%;
-    width: 50%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.buttons {
-    background: white;
-    border-radius: 2em;
-    width: 70%;
-    padding: 3%;
-    border: 0;
-
-    color: darkslategrey;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
-
-    transition: all .2s;
-}
-.buttons:hover {
-    background: indianred;
-    color: white;
-}
-
-#result-container {
-    width: 20%;
-
-    opacity: 0.0;
-}
-
-#result {
-    background: green;
-    
-    border-radius: 2em;
-    width: 100%;
-    padding: 5%;
-
+.row {
     text-align: center;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
 }
+
+button {
+    border: 0;
+}
+button:focus {
+    outline: none;
+}
+
+/*HEADING ====================================================*/
+    #heading-container {
+        margin-top: 3em;
+        margin-bottom: 0;
+    }
+    #heading-container h1 {
+        font-size: 6em;
+        margin: 0;
+    }
+    #heading-container h1::first-letter {
+        font-size: 1.4em;
+    }
+
+/*JAPANESE HEADING ===========================================*/
+    #japanese-heading-container p {
+        font-family: 'MS PGothic', Arial, sans-serif;
+        font-size: 2em;
+
+        transform: translateY(-.3em);
+    }
+    #japanese-heading-container p::first-letter {
+        color: #cd5c5c;
+    }
+
+/*DESCRIPTION ================================================*/
+    #description-container {
+        margin-top: 2em;
+    }
+
+    #description-container p {
+        font-size: 1.5em;
+    }
+
+/*LEVEL BUTTONS ==============================================*/
+    #level-buttons-container {
+        margin-top: 2em;
+    }
+
+    .level-button {
+        background: #e6e6e6;
+        height: 5em;
+        width: 5em;
+        border-radius: 100%;
+        margin: 1em;
+
+        color: #752424;
+        font-size: 1.5em;
+    }
+    .level-button:hover {
+        background: #cd5c5c;
+        color: #e6e6e6;
+    }
+    .dark-red {
+        border: .2em solid #752424;
+    }
+
+/*GO BUTTON ==================================================*/
+    #go-button-container {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+    
+    #go-button {
+        background: #cd5c5c;
+        height: 2.5em;
+        width: 5em;
+        border-radius: 10em;
+
+        color: white;
+        font-size: 2em;
+
+        transition: all .2s;
+    }
+    #go-button:hover {
+        background: #752424;
+    }
+    #go-button:active {
+        transform: translateY(.1em);
+    }
+    

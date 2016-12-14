@@ -9,11 +9,6 @@ $(document).ready(function() {
         this.hits = 0;
     }
 
-
-    $(".level-button").click(function() {
-        $(this).toggleClass("dark-red");
-    });
-
     // Loads kanjis into the system
     var cards = [];
     loadLevel1(cards);
