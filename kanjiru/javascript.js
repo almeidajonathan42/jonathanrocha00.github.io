@@ -14,6 +14,29 @@ $(document).ready(function() {
         $(this).toggleClass("dark-red");
     });
 
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+
+    function checkWidth() {
+        if ($(window).width() <= 800) {
+            $("#top-bar").css("opacity", "0");
+            $("#flashcard-container").css("width", "90%");
+            $("#flashcard-container").css("flex-direction", "column");
+            $("#kanji").css("font-size", "50vw");
+            $("#answers-container").css("width", "90%");
+            // $("#flashcard-container").css("min-width", $("#kanji"));
+
+        }
+        else {
+            $("#top-bar").css("opacity", "1");
+            $("#flashcard-container").css("width", "55em");
+            $("#flashcard-container").css("flex-direction", "row");
+            $("#kanji").css("font-size", "15em");
+            $("#answers-container").css("width", "40%");
+        }
+    }
+
+
     // Loads kanjis into the system
     var cards = [];
     loadLevel1(cards);

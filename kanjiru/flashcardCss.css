@@ -1,0 +1,78 @@
+html, body {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*TOP BAR ====================================================*/
+    #top-bar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        box-shadow: 0 0 2em grey;
+
+        text-align: left;
+    }
+    #top-bar h1{
+        font-size: 1.8em;
+        margin: .4em 1.4em;
+    }
+
+/*FLASHCARD CONTAINER ========================================*/
+    #flashcard-container {
+        background: white;
+        width: 55em;
+        border: .2em solid black;
+        border-radius: 2em;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+/*KANJI ======================================================*/
+    #kanji-container {
+        /*background: red;*/
+        width: 50%;
+        text-align: center;
+    }
+    
+    #kanji {
+        color: black;
+        font-family: 'MS PGothic', Arial, sans-serif;
+        font-size: 15em;
+        margin: 0;
+    }
+
+/*ANSWERS ====================================================*/
+    #answers-container {
+        /*background: blue;*/
+        width: 40%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons {
+        background: white;
+        width: 100%;
+        border-radius: 2em;
+        padding: .5em 0;
+        border: 0;
+
+        color: darkslategrey;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.8em;
+
+        transition: all .2s;
+    }
+    .buttons:hover {
+        background: indianred;
+        color: white;
+    }

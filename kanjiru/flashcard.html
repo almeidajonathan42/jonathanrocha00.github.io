@@ -14,41 +14,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!--My stuff-->
-    <link rel="stylesheet" type="text/css" href="css.css"/>
-    <script src="old/javascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="flashcardCss.css"/>
+    <script src="javascript.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
 
 </head>
 <body>
 
-<!--BOOTSTRAP CONTAINER=============================================-->
-<div class="container-fluid">
+    <div id="top-bar">
+        <h1> <span style="color: #cd5c5c">Kan</span>jiru • <span style="font-family: 'MS PGothic', Arial, sans-serif"><span style="color: #cd5c5c">感</span>じる</span> </h1>
+    </div>
 
-    <div class="row" id="top-bar">
-        <div class="col-sm-12">
-            <h1> <span style="color: #cd5c5c">Kan</span>jiru • <span style="font-family: 'MS PGothic', Arial, sans-serif"><span style="color: #cd5c5c">感</span>じる</span> </h1>
+    <div id="flashcard-container">
+        <div id="kanji-container">
+            <p id="kanji"> A </p>
+            <!--<p id="hits">  </p>-->
+        </div>
+
+        <div id="answers-container">
+            <button class="buttons" id="button1">  </button>
+            <button class="buttons" id="button2">  </button>
+            <button class="buttons" id="button3">  </button>
+            <button class="buttons" id="button4">  </button>
         </div>
     </div>
 
-    <div class="row" id="flashcard-container">
-        <div class="col-sm-12">
-            <div class="col-sm-6" id="kanji-container">
-                <p id="kanji"> A </p>
-                <!--<p id="hits">  </p>-->
-            </div>
-
-            <div class="col-sm-6" id="answers-container">
-                <button class="buttons" id="button1">  </button>
-            	<button class="buttons" id="button2">  </button>
-            	<button class="buttons" id="button3">  </button>
-            	<button class="buttons" id="button4">  </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" id="result-container">
+    <!--<div class="row" id="result-container">
         <p id="result"> Result </p>
-    </div>
+    </div>-->
 
 </div>
     
