@@ -88,4 +88,65 @@ button:focus {
     #go-button:active {
         transform: translateY(.1em);
     }
-    
+
+/*FLASHCARDS*/
+
+/*TOP BAR ====================================================*/
+    #top-bar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        box-shadow: 0 0 2em grey;
+
+        text-align: left;
+    }
+    #top-bar h1{
+        font-size: 1.8em;
+        margin: .4em .5em;
+    }
+
+/*FLASHCARD CONTAINER ========================================*/
+    #flashcard-container {
+        background: white;
+        width: 55em;
+        margin: auto;
+        border: .2em solid black;
+        border-radius: 2em;
+        /*box-shadow: 0 0 2em grey;*/
+
+        transform: translateY(30%);
+    }
+
+/*KANJI ======================================================*/
+    #kanji {
+        color: black;
+        font-family: 'MS PGothic', Arial, sans-serif;
+        font-size: 20em;
+        margin: 0;
+    }
+
+/*ANSWERS ====================================================*/
+    #answers-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons {
+        background: white;
+        border-radius: 2em;
+        width: 70%;
+        padding: 3%;
+        border: 0;
+
+        color: darkslategrey;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2em;
+
+        transition: all .2s;
+    }
+    .buttons:hover {
+        background: indianred;
+        color: white;
+    }
