@@ -7,6 +7,9 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+button:focus {
+    outline: none;
+}
 
 /*TOP BAR ====================================================*/
     #top-bar {
@@ -26,13 +29,54 @@ html, body {
     #flashcard-container {
         background: white;
         width: 55em;
-        border: .2em solid black;
+        margin: 1em;
+        border: .1em solid #cccccc;
         border-radius: 2em;
+        box-shadow: .1em .1em .3em #808080;
+        position: relative;
 
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    #hole {
+        height: 2.5em;
+        width: 2.5em;
+        border: .1em solid #cccccc;
+        border-radius: 100%;
+        box-shadow: inset .1em .1em .3em #808080;
+
+        position: absolute;
+        top: 1em;
+        left: 1em;
+    }
+
+/*HITS =======================================================*/
+    #hits-container {
+        /*background: red;*/
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin: 1em;
+    }
+
+    .hit {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        margin: .3em;
+    }
+
+    .grey {
+        border: .4em solid #cccccc;
+    }
+    .blue {
+        border: .4em solid #6495ed;
     }
 
 /*KANJI ======================================================*/
@@ -65,6 +109,7 @@ html, body {
         border-radius: 2em;
         padding: .5em 0;
         border: 0;
+        margin: .5em;
 
         color: darkslategrey;
         font-family: Arial, Helvetica, sans-serif;
@@ -75,4 +120,12 @@ html, body {
     .buttons:hover {
         background: indianred;
         color: white;
+    }
+
+    .correctBlue {
+        background: #6495ed;
+    }
+
+    .wrongRed {
+        background: darkred;
     }
