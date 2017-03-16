@@ -51,6 +51,19 @@
         height: 4em;
         width: 100%;
     }
+	
+	.separator {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 0 0 0;
+	}
+	.separator-inverted {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 0 0 0;
+	}
 
 /*TOP MENU =======================================================*/
     #top-menu {
@@ -221,8 +234,8 @@
     }
 
 /*1000 WORDS =====================================================*/
-    #triangle-words {
-        background: #993333;
+    #separator-words {
+        border-color: #993333 transparent transparent #f1d9c0;
     }
     
     #words {

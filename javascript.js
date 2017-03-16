@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+	
+	// https://www.youtube.com/watch?v=Mj1CN6fw6c4&list=RDEMd0cZsSNaCAtC4kFMIqzPBA&index=11
+	
     // Handles scrolling animation
     $(".scroll").click(function(event){
         event.preventDefault();
@@ -24,6 +26,7 @@ $(document).ready(function() {
     });
 
     function checkHeightWidth() {
+				
         if ($(window).width() < 750) {
             // Hides top-menu
             $("#top-menu").fadeOut("slow");
@@ -33,8 +36,11 @@ $(document).ready(function() {
 
             // Sets rows to be displayed as blocks (back to default)
             $(".row").css("display", "block");
-
-        }
+			
+			// Handles irregular separator divs
+			$(".separator").css("border-width", ($(window).width() / 10) + "px " + $(window).width() + "px 0 0");
+			$(".separator-inverted").css("border-width", ($(window).width() / 10) + "px 0 0 " + $(window).width() + "px");
+		}
         else {
             // Shows top-menu
             $("#top-menu").fadeIn("slow");
@@ -46,7 +52,11 @@ $(document).ready(function() {
 
             // Sets rows to be displayed as flexboxes (centering col divs)
             $(".row").css("display", "flex");
-        }
+			
+			// Handles irregular separator divs
+			$(".separator").css("border-width", ($(window).width() / 15) + "px " + $(window).width() + "px 0 0");
+			$(".separator-inverted").css("border-width", ($(window).width() / 15) + "px 0 0 " + $(window).width() + "px");
+		}
     }
 
 });
