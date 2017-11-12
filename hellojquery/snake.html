@@ -100,7 +100,7 @@
     }
     
     // Game settings
-    let squareSize = 100;
+    let squareSize = 20;
 
     // Game variables
     let canvas = document.getElementById("myCanvas");
@@ -151,11 +151,6 @@
         if (snake.head.x == fruit.x &&
             snake.head.y == fruit.y) {
 
-            snake.grow();
-            snake.grow();
-            snake.grow();
-            snake.grow();
-            snake.grow();
             snake.grow();
 
             let newFruitX;
