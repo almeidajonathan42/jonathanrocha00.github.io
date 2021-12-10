@@ -1,0 +1,303 @@
+<canvas id="myCanvas" width="800" height="600"> </canvas>
+
+<script>
+    // Directions mapping enum
+    var Directions = {
+        UP: 0,
+        DOWN: 1,
+        LEFT: 2,
+        RIGHT: 3,
+    }
+    
+    // Controls mapping enum
+    var Controls = {
+        W: 119,
+        S: 115,
+        A: 97,
+        D: 100,
+        SPACE: 32,
+    }
+    
+    // SQUARE CLASS
+    function Square(x, y, side, color) {
+        this.x = x;
+        this.y = y;
+        this.side = side;
+        this.color = color;
+    }
+    
+    // SNAKE CLASS
+    function Snake(facingDirection, x, y, side) {
+        this.color = "white";
+        this.direction = facingDirection;
+        this.head = new Square(x, y, side, this.color);
+        this.body = [];
+        
+        this.grow = function () {
+            // Grow from head
+            if (this.body.length == 0) {
+                if (this.direction == Directions.UP) {
+                    this.body.push(new Square(this.head.x, this.head.y + 1, this.head.side, this.color));
+                } else if (this.direction == Directions.DOWN) {
+                    this.body.push(new Square(this.head.x, this.head.y - 1, this.head.side, this.color));
+                } else if (this.direction == Directions.LEFT) {
+                    this.body.push(new Square(this.head.x + 1, this.head.y, this.head.side, this.color));
+                } else if (this.direction == Directions.RIGHT) {
+                    this.body.push(new Square(this.head.x - 1, this.head.y, this.head.side, this.color));
+                }
+            // Grow from last Square in body
+            } else {
+                if (this.direction == Directions.UP) {
+                    this.body.push(new Square(this.body[this.body.length - 1].x, 
+                                              this.body[this.body.length - 1].y + 1,
+                                              this.body[this.body.length - 1].side,
+                                              this.color));
+                } else if (this.direction == Directions.DOWN) {
+                    this.body.push(new Square(this.body[this.body.length - 1].x, 
+                                              this.body[this.body.length - 1].y - 1,
+                                              this.body[this.body.length - 1].side,
+                                              this.color));
+                } else if (this.direction == Directions.LEFT) {
+                    this.body.push(new Square(this.body[this.body.length - 1].x + 1, 
+                                              this.body[this.body.length - 1].y,
+                                              this.body[this.body.length - 1].side,
+                                              this.color));
+                } else if (this.direction == Directions.RIGHT) {
+                    this.body.push(new Square(this.body[this.body.length - 1].x - 1, 
+                                              this.body[this.body.length - 1].y,
+                                              this.body[this.body.length - 1].side,
+                                              this.color));
+                }
+            }
+        }
+        
+        this.changeDirection = function (newDirection) {            
+            if (this.direction != Directions.DOWN && 
+                newDirection == Directions.UP) {
+                this.direction = newDirection;
+                
+            } else if (this.direction != Directions.UP && 
+                       newDirection == Directions.DOWN) {
+                this.direction = newDirection;
+                
+            } else if (this.direction != Directions.LEFT && 
+                       newDirection == Directions.RIGHT) {
+                this.direction = newDirection;
+                
+            } else if (this.direction != Directions.RIGHT && 
+                       newDirection == Directions.LEFT) {
+                this.direction = newDirection;
+            }
+        }
+    }
+
+    // Util functions
+    function randNumGrid(min, max, squareSize) {
+        let originalRandomNumber = Math.floor(Math.random() * max) + min;
+		let remainder = originalRandomNumber % squareSize;
+        
+        return originalRandomNumber - remainder;
+    }
+    
+    // Game settings
+    let squareSize = 20;
+
+    // Game variables
+    let canvas = document.getElementById("myCanvas");
+	let c = canvas.getContext("2d");
+    let alreadyChangedDirection = false;
+    let direction = Directions.RIGHT;
+    let snake = new Snake(direction, 
+                          randNumGrid(0, canvas.width, squareSize), 
+                          randNumGrid(0, canvas.height, squareSize), 
+                          squareSize);
+    let fruit = new Square(randNumGrid(0, canvas.width, squareSize), 
+                           randNumGrid(0, canvas.height, squareSize),
+                           squareSize,
+                           "#F44336");
+
+
+    function init() {
+		c.fillStyle = 'black';
+		c.fillRect(0, 0, canvas.width, canvas.height);
+	}
+
+	function update() {
+        alreadyChangedDirection = false;
+
+        moveSnake(snake);
+        checkCollision();
+        drawGrid();
+        drawSnake();
+        drawFruit();
+	}
+
+	function checkCollision() {
+        // Collision with borders
+		if (snake.head.x > canvas.width) {
+			snake.head.x = 0;
+		}
+		else if (snake.head.y > canvas.height) {
+			snake.head.y = 0;
+		}
+		else if (snake.head.x < 0) {
+			snake.head.x = canvas.width;
+		}
+		else if (snake.head.y < 0) {
+			snake.head.y = canvas.height;
+		}
+
+        // Collision with fruits
+        if (snake.head.x == fruit.x &&
+            snake.head.y == fruit.y) {
+
+            snake.grow();
+
+            let newFruitX;
+            let newFruitY;
+
+            // Checks if new fruit position is already taken by snake square
+            let newFruitPositionIsTaken = true;
+            while (newFruitPositionIsTaken) {
+
+                console.log("searching for fruit position");
+
+                newFruitX = randNumGrid(0, canvas.width, squareSize);
+                newFruitY = randNumGrid(0, canvas.height, squareSize);
+
+                newFruitPositionIsTaken = false;
+
+                // Checks snake head
+                if (snake.head.x == newFruitX &&
+                    snake.head.y == newFruitY) {
+
+                    newFruitPositionIsTaken = true;
+                }
+
+                // Checks snake body
+                if (!newFruitPositionIsTaken) {
+                    for (i = 0; i < snake.body.length; i++) {
+                        if (newFruitX == snake.body[i].x &&
+                            newFruitY == snake.body[i].y) {
+
+                            newFruitPositionIsTaken = true;
+                        }
+                    }
+                }
+
+            }
+
+            fruit.x = newFruitX;
+            fruit.y = newFruitY;
+        } 
+
+        // Collision with snake body
+        for (let i = snake.body.length - 1; i >= 0; i--) {
+            if (snake.head.x == snake.body[i].x &&
+                snake.head.y == snake.body[i].y) {
+                console.log("game over");
+
+
+
+
+
+                //TODO: game over screen
+
+
+
+
+            }
+        }
+	}
+    
+    function drawGrid() {
+		c.fillStyle = 'rgba(0, 0, 0, .7)';
+		c.fillRect(0, 0, canvas.width, canvas.height);
+
+		// Draws vertical lines
+		for (let i = 0; i < canvas.width; i = i + squareSize) {
+			c.beginPath();
+			c.moveTo(i, 0);
+			c.lineTo(i, canvas.height);
+			c.strokeStyle = '#262626';
+	      	c.stroke();
+		}
+		// Draws horizontal lines
+		for (let i = 0; i < canvas.height; i = i + squareSize) {
+			c.beginPath();
+			c.moveTo(0, i);
+			c.lineTo(canvas.width, i);
+			c.strokeStyle = '#262626';
+	      	c.stroke();
+		}
+	}
+
+    function moveSnake(snake) {
+        // Moves body
+        if (snake.body.length > 0) {
+            for (let i = snake.body.length - 1; i > 0; i--) {
+                snake.body[i].x = snake.body[i - 1].x;
+                snake.body[i].y = snake.body[i - 1].y;
+            }
+
+            snake.body[0].x = snake.head.x;
+            snake.body[0].y = snake.head.y;
+        }
+
+        // Moves head
+        if (snake.direction == Directions.UP) {
+            snake.head.y -= squareSize;
+        }
+        else if (snake.direction == Directions.DOWN) {
+            snake.head.y += squareSize;
+        }
+        else if (snake.direction == Directions.LEFT) {
+            snake.head.x -= squareSize;
+        }
+        else if (snake.direction == Directions.RIGHT) {
+            snake.head.x += squareSize;
+        }
+
+        
+    }
+
+    function drawSnake() {
+        c.fillStyle = snake.color;
+        c.fillRect(snake.head.x, snake.head.y, squareSize, squareSize);
+
+        for (let i = 0; i < snake.body.length; i++) {
+            c.fillStyle = snake.color;
+            c.fillRect(snake.body[i].x, snake.body[i].y, squareSize, squareSize);
+        }
+    }
+
+    function drawFruit() {
+        c.fillStyle = fruit.color;
+		c.fillRect(fruit.x, fruit.y, squareSize, squareSize);
+    }
+
+    // Handles all user input
+    window.addEventListener("keypress", function key() {
+        let key = event.keyCode;
+        if (!alreadyChangedDirection) {
+            if (key == Controls.W) {            
+            snake.changeDirection(Directions.UP);
+            }
+            else if (key == Controls.S) {
+                snake.changeDirection(Directions.DOWN);
+            }
+            else if (key == Controls.D){
+                snake.changeDirection(Directions.RIGHT);
+            }
+            else if (key == Controls.A) {
+                snake.changeDirection(Directions.LEFT);
+            }
+
+            alreadyChangedDirection = true;
+        }
+    });
+
+    init();
+	setInterval(update, 1000/10);
+
+</script>
